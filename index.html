@@ -12,6 +12,9 @@
 <body id="pagina">
 
     <!--inicio do site, div com posicao fixa, que serve como menu de interecao para levar para qualquer area do site-->
+    <div id="tabelaMobilie">
+        <div id=""
+    </div>
     <div id="tabela">
         <!--logotipo da barra de interacao-->
         <div id="texto">
@@ -74,15 +77,15 @@
         </div>
         <input type="text" id="sugestaoDeMelhora">
     </div>
-    <br><br><br>
+    <div id="informaCont">
+        <!--div que guarda o titulo da secao-->
+        <h1><a>Contatos</a></h1>
+    </div>
+
     <!--div que guarda a secao de informacoes para contato, tem o display flex com a direcao em linha, e flex wrap, q significa que se for necessario a quebra
     de linha, ele quebra-->
     <div id="informacao">
-        <div id="informaCont">
-            <!--div que guarda o titulo da secao-->
-            <h1><a>Contatos</a></h1>
-        </div>
-
+       
 
         <div id="whats">
             <!--div com o link e as informacoes do whatsapp, com flex direction colum, e td alinhado no centro nos 2 eixos-->
@@ -124,17 +127,17 @@
         </div>
 
     </div>
-    <br><br><br> <br><br><br>
+    <div id="informaServ">
+
+        <h1><a>     Serviços   </a></h1>
+
+    </div>
+
 
     <!--div que guarda todo o conteudo da secao de servicos que a barbearia faz-->
     <div id="servico2">
         <!--div que guarda o titulo da secao-->
-        <div id="informaServ">
-
-            <h1><a>     Serviços   </a></h1>
-
-        </div>
-
+        
         <div id="ServCabelo">
             <!--div com o link e as informacoes do servico corte de cabelo, com flex direction colum, e td alinhado no centro nos 2 eixos-->
             <!--imagem ilustrativa do corte de cabelo, junto com as informacoes de preco-->
@@ -164,21 +167,16 @@
             <h5>sobrancelha na navalha 10,00 R$</h5>
 
         </div>
-
-
-
-
-
-
     </div>
-    <br><br><br><br>
+   
     <!--div com conteudo de agendar um horario, resposanvel por chamar o js para calcular precos e redirecionar para o wpp com o preco total dos servicoes pedidos-->
+    <div id="titAgendar">
+        <h1><a>Agende um horario</a></h1>
+    </div>
     <div id="agendHor">
         <!--div que guarda todo o conteudo da secao agendar horario, com display flex, com direcoes em linhas e tudo alinhado no centro nos dois eixos-->
         <!--div com o titulo da secao-->
-        <div id="titAgendar">
-            <h1><a>Agende um horario</a></h1>
-        </div>
+        
         <!--a div inteira e guardada com um link, pois assim qualquer lugar q for clicado na div consegui aciona a funcao pedida, e n deixa nenhuma borda de botao automaticamente-->
         <a id="agendaCab1" onclick="seleciona(agendCab, 0, env,0);">
             <!--é passado para o js a funcao para chamar quando clicar na div, o parametro do id da div em q ele deve alterar, o numero a qual essa div é represtando no subvetor marcados,
@@ -259,13 +257,13 @@
     <!--div que guarda o botao de marcar horario, inicialmente nao aparece para o usuario, e só aparece na tela quando o js identifica pelas funcoes que existe alguma opcao marcada
     na tela, ae ele aplica um display inline na div, fazendo-a aparecer-->
 
-    <br><br><br><br><br>
+    <!--div que guarda o titulo da secao-->
+    <div id="titProdutosVend">
+        <h1><a>Produtos</a></h1>
+    </div>
     <!--div com o conteudo da secao dos produtos a venda-->
     <div id="produtosVend">
-        <!--div que guarda o titulo da secao-->
-        <div id="titProdutosVend">
-            <h1><a>Produtos</a></h1>
-        </div>
+        
         <!--a div inteira e guardada com um link, pois assim qualquer lugar q for clicado na div consegui aciona a funcao pedida, e n deixa nenhuma borda de botao automaticamente-->
         <a id="compraPom" onclick="seleciona(pomada, 0, env2,1);">
             <!--é passado para o js a funcao para chamar quando clicar na div, o parametro do id da div em q ele deve alterar, o numero a qual essa div é represtando no subvetor marcados,
@@ -347,20 +345,21 @@
         </div>
     </div>
     <!--div responsavel por mostrar as informacoes de localizacao na pagina-->
+    <!--titulo da secao-->
+    <div id="tiltLocal">
+        <h1><a>Localização</a></h1>
+        <!--botao para fazer a troca do google maps para imagens da fachada ou dentro da loja fica dentro da div do titulo, com um afastamento do topo para
+        sempre ficar centralizado e posicionado no mesmo lugar-->
+        <a onclick="autorizacao(450,1300,-820,1300,450,0);" id="botaoloca"><i>
+            <!--id na tag de texto e referente para trocar a mensagem dentro da tag pelo js-->
+            <span id="mensagem2">mostrar entrada</span></i>
+        </a>
+        <a onclick="autorizacao(-50,600,-500,600,-50,1);" id="botaoLocaMobile"><i>
+            <span id="mensagem2mobile">mostrar entrada</span>
+        </i></a>
+    </div>
     <div id="localizacao2">
-        <!--titulo da secao-->
-        <div id="tiltLocal">
-            <h1><a>Localização</a></h1>
-            <!--botao para fazer a troca do google maps para imagens da fachada ou dentro da loja fica dentro da div do titulo, com um afastamento do topo para
-            sempre ficar centralizado e posicionado no mesmo lugar-->
-            <a onclick="autorizacao(450,1300,-820,1300,450,0);" id="botaoloca"><i>
-                <!--id na tag de texto e referente para trocar a mensagem dentro da tag pelo js-->
-                <span id="mensagem2">mostrar entrada</span></i>
-            </a>
-            <a onclick="autorizacao(-50,600,-500,600,-50,1);" id="botaoLocaMobile"><i>
-                <span id="mensagem2mobile">mostrar entrada</span>
-            </i></a>
-        </div>
+        
         <!--iframe com localizacao do mapa, q aparece inicialmente-->
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d934.5180934884722!2d-45.43604417082088!3d-20.462220399144243!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94b4edc5a7144aa9%3A0x9626f70ac55a1ecc!2sHS%20Barber!5e0!3m2!1spt-BR!2sbr!4v1656431515194!5m2!1spt-BR!2sbr"
             width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" id="mapa">

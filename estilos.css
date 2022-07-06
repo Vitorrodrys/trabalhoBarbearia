@@ -122,7 +122,7 @@ e o ponteiro do mouse para pointer*/
                     /*cada div interna da div tera um distanciamento de 50px de baixo*/
                     justify-content: space-around;
                     /*define um espacamento igual para todos os elementos no eixo horizontal*/
-                    align-items: flex-start;
+                    align-items: center;
                     /*define todos os elementos da div posicionados no inicio*/
                 }
                 
@@ -289,26 +289,21 @@ e o ponteiro do mouse para pointer*/
                     /*se necessario, quebraram o fluxo para a proxima linha*/
                     justify-content: space-around;
                     /*define que todos os elementos teram um espacamento igual um do outro*/
-                    align-items:  flex-start;
+                    align-items:  center;
                     /*define que todos os elementos ficaram alinhados no centro no eixo vertical*/
                     background-color: #DCDCDC; 
                     height: 800px;
                     /*tentar padronizar o tamanho das divs pra ajudar a responsividade******************************************************************************************************************************************************************************************************************************************************************************************/
                 }
                 
-                #servico2 {
-                    align-items: flex-start;
-                }
+                
                 
                 #localizacao2 {
                     /*toda div que possuir essa tag, recebera esse fundo*/
                     background-color: white;
                 }
                 
-                #produtosVend {
-                    /*toda div q tiver esse id, recebera um espacamento igual no eixo perpendicular*/
-                    align-items: flex-start;
-                }
+               
                 
                 #enviar {
                     /*toda div q0ue possuir o id enviar recebe*/
@@ -361,6 +356,7 @@ e o ponteiro do mouse para pointer*/
                     border-radius: 10px;
                     /*e esse arrendodamento nas bordas*/
                 }
+
                 
                 #fotosServs {
                     min-height: 120px;
@@ -394,11 +390,16 @@ e o ponteiro do mouse para pointer*/
                 #informaServ,
                 #titAgendar,
                 #tiltLocal {
-                    /*qualquer div que tiver algum desses ids, recebera*/
-                    width: 1300px;
-                    /*esse tamanho*/
-                    margin-left: 700px;
-                    /*e esse afastamento da margem*/
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    padding: 50px;
+                    height: 30px;
+                    /* width: 100%; */
+                }
+                #titProdutosVend, #informaServ{
+                    background-color: #DCDCDC;
                 }
                 
                 h1 a {
@@ -550,6 +551,7 @@ e o ponteiro do mouse para pointer*/
                     margin-left: 20px;
                     /*afastamento da esquerda de 600px*/
                     box-shadow: 0 0 1em black;
+                    margin-bottom: 40px;
                 }
                 
                 #botaoCalc {
@@ -661,14 +663,7 @@ e o ponteiro do mouse para pointer*/
                     border-radius: 10px;
                 }
                 
-                #tiltLocal {
-                    margin-left: 100px;
-                    display: flex;
-                    height: 200px;
-                    flex-direction: column;
-                    align-items: center;
-                    justify-content: space-between;
-                }
+            
                 
                 #botaoloca, #botaoLocaMobile {
                     display: flex;
@@ -772,7 +767,9 @@ e o ponteiro do mouse para pointer*/
                     display: none;
                 }
                 
+                
                 @media (max-width:600px) {
+                  
                    
                     #tabela {
                         display: none;
@@ -793,19 +790,11 @@ e o ponteiro do mouse para pointer*/
                         height: 400px;
                     }
                     
-                    #informacao {
+                   #informaCont{
                         margin-top: -400px;
-                    }
-                    #titProdutosVend,
-                    #informaCont,
-                    #informaServ,
-                    #titAgendar,
-                    #tiltLocal {
-                        margin-left: 1000px;
-                    }
-                    #tiltLocal {
-                        margin-left: -400px;
-                    }
+                   }
+                    
+                  
                     #agendaCab1:hover #teste {
                         /*toda vez q o mouse passar por cima da div agendaCab1
         a div teste recebe essa borda*/
