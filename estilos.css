@@ -1,0 +1,908 @@
+                #tabela {
+                    /*div da barra de navegacao da pagina*/
+                    display: flex;
+                    /*tem o display flex para que seus elementos surgem dessa forma*/
+                    flex-direction: row;
+                    /*faz qualquer elemento novo da div surgir em linha reta*/
+                    align-items: center;
+                    /*alinha todos os itens no eixo vertical no centro*/
+                    justify-content: space-around;
+                    /*faz com q todos os elementos no eixo vertical tenho um espacamento justificado*/
+                    position: fixed;
+                    /*faz com que a posicao da div seja fixa, ou seja, idependente da rolagem, ela permanece no mesmo lugar na tela*/
+                    left: -10px;
+                    /*faz com q ela tenha um afastamento da esquerda de -10, ou seja, forca a div a preencher toda a tela*/
+                    margin-top: -5px;
+                    /*espacamento do topo da tela sendo -5*/
+                    background-color: black;
+                    /*faz com q a div tenha uma cor preta*/
+                    opacity: 0.4;
+                    /*da uma transparencia de 0.4 a div, fazendo os elementos atraz dela serem visiveis*/
+                    width: 100%;
+                    /*tamanho horizontal da div*/
+                    height: 100px;
+                    /*tamanho vertical*/
+                }
+                
+                #texto,
+                /*todas as divs com nome texto, ou h1"h1 sem id" tem essa font e essa cor*/
+                
+                h1 {
+                    font-family: sans-serif;
+                    color: gray;
+                }
+                
+                #servicos,
+                #contato,
+                #localizacao,
+                /*qualquer div com esses nomes tem essa font*/
+                
+                #produtos {
+                    font-family: italic;
+                    font-size: 25px;
+                }
+                
+                #servicos,
+                #contato,
+                #localizacao,
+                /*qualquer div com esses nomes ou com a tag a"sem id" nao tem decoracao de texto e tem essa cor*/
+                
+                #produtos,
+                a {
+                    text-decoration: none;
+                    color: #8FBC8F;
+                }
+                
+                #servicos,
+                #contato,
+                #localizacao,
+                #produtos,
+                /*qualquer div com esses nomes ou com a tag a"sem id", quando passar o mouse por cima, a letra delas sera trocada para essa cor
+e o ponteiro do mouse para pointer*/
+                
+                a:hover {
+                    color: darkcyan;
+                    cursor: pointer;
+                }
+                
+                #agendar {
+                    /*atributos da div q usar id agendar*/
+                    font-family: italic;
+                    position: relative;
+                    /*posicao relativa a posicao inicial dela mesma*/
+                    display: flex;
+                    /*forma com q os elementos dessa div apareceram na tela*/
+                    align-items: center;
+                    /*alinha todos os elementos tanto do eixo veritical, quanto horizontal no centro*/
+                    justify-content: center;
+                    width: 100px;
+                    /*largura tera 100px*/
+                    height: 40px;
+                    /*altura 40px*/
+                    background-color: black;
+                    /*cor de fundo da div sera preta*/
+                    font-size: 15px;
+                    /*letras da div terao 20 px*/
+                    border-style: groove;
+                    /*estilo da borda da div sera grovee*/
+                    border-color: gray;
+                    /*cor da borda sera cinza*/
+                    border-radius: 9px white;
+                    /*aplica uma borda com curva de 9 px e cor branca*/
+                }
+                
+                #agendar:hover {
+                    /*quando o mouse passar por cima da div agendar*/
+                    border-color: darkcyan;
+                    /*sua borda tera essa cor*/
+                    color: darkcyan;
+                    /*seu texto tera essa cor*/
+                    cursor: pointer;
+                    /*e o ponteiro do mouse sra asssim*/
+                }
+                
+                #agendar:hover #agd {
+                    /*quando o mouse passar por cima de agendar, os elementos da div agd receberao essa cor*/
+                    color: darkcyan;
+                }
+                
+                #informacao {
+                    /*atributos da div informacao*/
+                    height: 500px;
+                    /*altura de 500px*/
+                    background-color: white;
+                    /*cor de fundo branca*/
+                    display: flex;
+                    /*forma que seus elementos aparecerao na tela*/
+                    flex-wrap: wrap;
+                    /*se nao tiver mais espaco, quebrar o fluxo */
+                    flex-direction: row;
+                    /*elementos apareceram em linha*/
+                    padding-bottom: 50px;
+                    /*cada div interna da div tera um distanciamento de 50px de baixo*/
+                    justify-content: space-around;
+                    /*define um espacamento igual para todos os elementos no eixo horizontal*/
+                    align-items: flex-start;
+                    /*define todos os elementos da div posicionados no inicio*/
+                }
+                
+                img {
+                    /*toda tag img tera borda de 10px*/
+                    border-radius: 10px;
+                }
+                
+                #logo {
+                    /*toda tag logo recebera um tamanho minimo de 900px, 1900px*/
+                    min-height: 900px;
+                    
+                }
+                
+                #whats,
+                #insta,
+                #ServCabelo,
+                #ServBarb,
+                #ServSob,
+                #ServSobNav,
+                #agendCab,
+                #agendaBarb,
+                #agendaSob,
+                #agendaSobNav,
+                #pomada,
+                #gel,
+                /*qualquer div q apresentar esse id recebera esses atributos*/
+                
+                #minox,
+                #posBarb {
+                    display: flex;
+                    /*forma com q os elementos aparecerao na tela*/
+                    flex-direction: column;
+                    /*define os elementos aparecendo em colunas, de baixo pra cima*/
+                    flex-wrap: wrap;
+                    /*se nao houver espaco, ir para proxima coluna*/
+                    align-items: center;
+                    /*alinha os elementos no centro dos dois eixos*/
+                    justify-content: center;
+                    text-align: center;
+                    /*alinha o texto do elemento no centro*/
+                    background-color: #E6E6FA;
+                    /*define a cor de fundo como essa*/
+                    border-radius: 10px;
+                    /*define o arrendodamento da borda do elemento assim*/
+                    height: 300px;
+                    /*define a altura do elemento como 300px*/
+                    width: 300px;
+                    /*define a largura do elemento como 300*/
+                    font-size: 20px;
+                    /*define o tamanho da font como 20*/
+                }
+                
+                #agendCab,
+                #agendaBarb,
+                #agendaSob,
+                #agendaSobNav {
+                    background-color: LightGrey;
+                    box-shadow: 5px 10px;
+                }
+                
+                #ServBarb {
+                    background-image: url("fundoBarba.png");
+                    width: 300px;
+                    height: 300px;
+                }
+                
+                #ServCabelo {
+                    background-image: url("fundoCabelo.png");
+                }
+                
+                #ServSob {
+                    background-image: url("fundoSobrancelha.png");
+                }
+                
+                #ServSobNav {
+                    background-image: url("fundoSobNav.png");
+                }
+                
+                #agendCab,
+                #agendaBarb,
+                #agendaSob,
+                #agendaSobNav {
+                    color: black;
+                }
+                
+                #pomada,
+                #gel,
+                #minox,
+                #posBarb {
+                    /*qualquer elemento que tiver alguma dessas tags, recebera esses atruibutos*/
+                    background-color: white;
+                    color: black;
+                }
+                
+                #linkCor,
+                #linkCor2,
+                /*qualquer elemento que tiver alguma dessas tags, recebe esses atributos*/
+                
+                #linkCor3 {
+                    padding: 20px;
+                    /*afastamento interno como 20px*/
+                    color: black;
+                    /*cor dos textos como preta*/
+                    text-decoration-line: overline;
+                    /*tipo de linha de decoracao dos links overline*/
+                }
+                
+                #email2 {
+                    /*div q conter esse id, recebe esses atributos*/
+                    background-color: white;
+                    /*cor de fundo branca*/
+                    color: white;
+                    /*cor dos textos brancas*/
+                    border: 0;
+                    /*nenhuma borda*/
+                }
+                
+                #email2:hover {
+                    /*quando o mouse ficar por cima da div email 2, o cursor recebe esse estilo*/
+                    cursor: pointer;
+                }
+                
+                #digEmail {
+                    /*id da div da caixa de dig do contato por email*/
+                    display: none;
+                    /*recebe um display none, para nao aparecer*/
+                    background-color: white;
+                    /*recebe essa cor de fundo*/
+                    border-radius: 10px;
+                    /*recebe um arredondamento das bordas de 10px*/
+                    border: #DCDCDC solid 2px;
+                    height: 220px;
+                    /*recebe uma altura de 220 px*/
+                    width: 350px;
+                    /*recebe uma largura de 350px*/
+                    font-size: 20px;
+                    /*tamanho da fonte das letras dentro da div*/
+                    /*tipo da fonte  das letras dentro da div*/
+                    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                    color: black;
+                    /*cor das letras da div*/
+                }
+                
+                #digEmail form {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: space-around;
+                    justify-content: space-around;
+                    padding: 8px;
+                }
+                
+                #servico2,
+                #agendHor,
+                /*todas as divs q tiverem algum desses ids, receberam*/
+                
+                #produtosVend,
+                #localizacao2 {
+                    display: flex;
+                    /*forma com que os elementos apareceram dentro da div*/
+                    flex-direction: row;
+                    /*elementos surgiram em linha*/
+                    flex-wrap: wrap;
+                    /*se necessario, quebraram o fluxo para a proxima linha*/
+                    justify-content: space-around;
+                    /*define que todos os elementos teram um espacamento igual um do outro*/
+                    align-items:  flex-start;
+                    /*define que todos os elementos ficaram alinhados no centro no eixo vertical*/
+                    background-color: #DCDCDC; 
+                    height: 800px;
+                    /*tentar padronizar o tamanho das divs pra ajudar a responsividade******************************************************************************************************************************************************************************************************************************************************************************************/
+                }
+                
+                #servico2 {
+                    align-items: flex-start;
+                }
+                
+                #localizacao2 {
+                    /*toda div que possuir essa tag, recebera esse fundo*/
+                    background-color: white;
+                }
+                
+                #produtosVend {
+                    /*toda div q tiver esse id, recebera um espacamento igual no eixo perpendicular*/
+                    align-items: flex-start;
+                }
+                
+                #enviar {
+                    /*toda div q0ue possuir o id enviar recebe*/
+                    background-color: lightslategrey;
+                    /*essa cor de fundo*/
+                    border-radius: 5px;
+                    /*borde redonda de 5 px*/
+                    border-color: black;
+                    /*cor da borda preta*/
+                    width: 98%;
+                    color: white;
+                    border: none;
+                    font-family: italic;
+                }
+                
+                #enviar:hover {
+                    cursor: pointer;
+                    background-color: rgb(167, 185, 204);
+                    color: black;
+                }
+                
+                #mensagem {
+                    /*a div da mensagem de sucesso ou erro do envio do email tera tamanho de 12 px*/
+                    font-size: 12px;
+                }
+                
+                #ServCabelo,
+                #ServBarb,
+                #ServSob,
+                #ServSobNav {
+                    /*toda div com esse id recebera*/
+                    display: flex;
+                    /*forma com q os elementos apareceram na tela*/
+                    flex-direction: column;
+                    /*define que os elementos apareceram em colunas*/
+                    justify-content: space-between;
+                    /*define que aparecem com esse espacamento*/
+                    flex-wrap: nowrap;
+                    box-shadow: -10px 10px 1em black;
+                }
+                
+                #ServCabelo,
+                #ServBarb,
+                #ServSob,
+                #ServSobNav,
+                #fotosServs {
+                    /*toda vez q aparecer a div cabelo seguida de img*/
+                    border: 3px solid black;
+                    /*recebe uma borda dessa*/
+                    border-radius: 10px;
+                    /*e esse arrendodamento nas bordas*/
+                }
+                
+                #fotosServs {
+                    min-height: 120px;
+                }
+                
+                #servico2 h5 {
+                    font-family: italic;
+                    font-weight: bolder;
+                    font-size: 12px;
+                    text-decoration: overline;
+                }
+                
+                #ServCabelo h5 {
+                    margin-top: 200px;
+                }
+                
+                #ServBarb h5 {
+                    margin-top: 200px;
+                }
+                
+                #ServSob h5 {
+                    margin-top: 200px;
+                }
+                
+                #ServSobNav h5 {
+                    margin-top: 200px;
+                }
+                
+                #titProdutosVend,
+                #informaCont,
+                #informaServ,
+                #titAgendar,
+                #tiltLocal {
+                    /*qualquer div que tiver algum desses ids, recebera*/
+                    width: 1300px;
+                    /*esse tamanho*/
+                    margin-left: 700px;
+                    /*e esse afastamento da margem*/
+                }
+                
+                h1 a {
+                    /*toda vez q as tags h1 e a aparecerem nessa seguencia*/
+                    color: black;
+                    /*e aplicado a cor preta ao texto*/
+                    text-decoration: none;
+                    /*é retirado a decoracao do texto*/
+                    font-family: italic;
+                    /*a fonta é definida com italic*/
+                    border-bottom: 1px solid #4B0082;
+                    /*a borda de baixo do elemento é definida assim*/
+                    padding-left: 20px;
+                    /*afastamento da esquerda e da direita sao definidos assim*/
+                    padding-right: 20px;
+                }
+                
+                h1 a:hover {
+                    /*toda vez q as tags h1 e a aparecem nessa sequencia, e o mouse passar por cima delas*/
+                    /*recebem a cor preta*/
+                    color: black;
+                    cursor: auto;
+                    /*e esse cursor*/
+                }
+                
+                #agendHor {
+                    /*div agenda horario recebe esses atribuos*/
+                    background-color: white;
+                    
+                }
+                
+                #agendaCab1:hover #teste {
+                    /*toda vez q o mouse passar por cima da div agendaCab1
+    a div teste recebe essa borda*/
+                    border: 5px solid darkcyan;
+                }
+                
+                #agendaCab1:hover #agendCab {
+                    color: darkcyan;
+                }
+                
+                #agendaBarb1:hover #teste1 {
+                    /*toda vez q o mouse passar por cima da div agendaBarb1, a div teste1 recebe essa borda*/
+                    border: 5px solid darkcyan;
+                }
+                
+                #agendaBarb1:hover #agendaBarb {
+                    color: darkcyan;
+                }
+                
+                #agendaSob1:hover #teste2 {
+                    /*toda vez q o mouse passar por cima da div agendaSob1, a div teste 2 recebe essa borda*/
+                    border: 5px solid darkcyan;
+                }
+                
+                #agendaSob1:hover #agendaSob {
+                    color: darkcyan;
+                }
+                
+                #agendaSobNav1:hover #teste3 {
+                    /*toda vez q o mouse passar por cima da div agebdaSobNav1, a div teste3 recebe essa borda*/
+                    border: 5px solid darkcyan;
+                }
+                
+                #agendaSobNav1:hover #agendaSobNav {
+                    color: darkcyan;
+                }
+                
+                #compraPom:hover #bordaPom {
+                    /*toda vez q o mouse passar por cima da div compraPom, a div bordaPom recebe essa borda*/
+                    border: 5px solid darkcyan;
+                }
+                
+                #compraPom:hover #pomada {
+                    /*toda vez q o mouse passar por cima da div compraPom, a div pomada recebe essa borda*/
+                    color: darkcyan;
+                    cursor: pointer;
+                    /*e esse ponteiro do mouse*/
+                }
+                
+                #compGel:hover #bordaGel {
+                    /*toda vez q o mouse passar por cima da div compGel, a div borda gel recebe essa borda*/
+                    border: 5px solid darkcyan;
+                }
+                
+                #compGel:hover #gel {
+                    /*toda vez q o mouse passar por cima da div compGel, a div gel recebe essa borda*/
+                    color: darkcyan;
+                    cursor: pointer;
+                    /*e esse ponteiro*/
+                }
+                
+                #compMinox:hover #minox {
+                    /*toda vez q o mouse passar por cima da div comp Minox, a div minox recebe essa borda*/
+                    color: darkcyan;
+                    cursor: pointer;
+                    /*e esse ponteiro do mouse*/
+                }
+                
+                #compMinox:hover #bordaMinox {
+                    /*toda vez q o mouse passar por cima da div comp minox, a div borda minox recebe essa borda*/
+                    border: 5px solid darkcyan;
+                }
+                
+                #compPos:hover #posBarb {
+                    /*toda vez q o mouse passar por cima da div comp pos, a div pos barb recebe essa borda*/
+                    color: darkcyan;
+                    cursor: pointer;
+                    /*e esse ponteiro*/
+                }
+                
+                #compPos:hover #bordaPos {
+                    /*toda vez q o mouse passar por cima da div compPos, a div borda pos recebe essa borda*/
+                    border: 5px solid darkcyan;
+                }
+                
+                #env {
+                    /*a div com id env recebe*/
+                    display: none;
+                    /*display none para naoaparecer*/
+                   justify-content: center;
+                }
+                
+                #botaoCalc,
+                #botaoCalcProd,
+                #botaoTiraDuv {
+                    /*qualaquer div q conter algum desses nomes de identicador recebem*/
+                    width: 250px;
+                    /*esses tamanhos de largura e atlura*/
+                    height: 40px;
+                    background-color: gray;
+                    /*essa cor de fundo*/
+                    display: flex;
+                    /*essa forma de apresentar os elementos na tela*/
+                    align-items: center;
+                    /*alinhamento dos itens no centro no eixo perpendicular*/
+                    justify-content: space-around;
+                    /*alinhamento dos elementos de forma igual no eixo horizontal*/
+                    font-size: 15px;
+                    /*tamanho da fonte de 20px*/
+                    font-family: italic;
+                    /*essa fonte dos elementos*/
+                    font-weight: bolder;
+                    color: beige;
+                    /*cor preta para os elementos de texto*/
+                    border: white;
+                    border-radius: 15px;
+                    /*arrendodamento da borda de 15px*/
+                    margin-left: 20px;
+                    /*afastamento da esquerda de 600px*/
+                    box-shadow: 0 0 1em black;
+                }
+                
+                #botaoCalc {
+                    box-shadow: 0 0 1em black;
+                }
+                
+                #env2 {
+                    display: none;
+                    /*botao envia 2 nao aparece inicialmente*/
+                    background-color: #DCDCDC;
+                    justify-content: center; 
+                    width: 100%;
+                    /*afastamento da esqueda de 600px*/
+                 
+                }
+                
+                #botoes {
+                    display: flex;
+                    /*forma com que os elementos filhos dessa div apareceram*/
+                    flex-direction: row;
+                    /*define q eles apareceram em linha*/
+                }
+                
+                #botaoCalcProd {
+                    margin-left: 0px;
+                    /*define nenhum espacamento da esquerda*/
+                    background-color: white;
+                    /*define cor de fundo como branca*/
+                    border: 2px solid green;
+                    /*define a borda com esse  tamanho, tipo e cor*/
+                    border-radius: 2px;
+                    /*define esse arrendodamento nas bordas*/
+                    color: black;
+                }
+                
+                #botaoTiraDuv {
+                    display: none;
+                    /*define q o btao tira duv inicialmente nao ira aparecer*/
+                    background-color: white;
+                    /*define sua cor de fundo como branca*/
+                    border: 2px solid green;
+                    /*define ele com esse tamanho, tipo e cor*/
+                    border-radius: 2px;
+                    /*define esse arrendodamento nas suas bordas*/
+                    margin-left: 0;
+                    /*define esse afastamento da esquerda, ou seja, nenhum*/
+                    color: black;
+                }
+                
+                #env2:hover #botaoTiraDuv,
+                #botaoCalcProd {
+                    /*quando o mouse estiver em cima de env2, nas divs botao tira duv e botacalc*/
+                    cursor: pointer;
+                    /*o cursor sera assim*/
+                }
+                
+                #env2:hover #botaoTiraDuv {
+                    /*quando o mouse estiver em cima de env2, nas divs botao tira duv */
+                    display: flex;
+                    /*o botao tira duv aparaece*/
+                }
+                
+                #env2:hover #botaoTiraDuv,
+                #botaoCalcProd {
+                    /*quando o mouse estiver em cima de env2, nas divs botao tira duv e botacalc*/
+                    border: 3px solid darkcyan;
+                    /*receberam essa borda*/
+                }
+                
+                #teste,
+                #teste1,
+                #teste2,
+                #teste3,
+                #bordaPom,
+                /*qualquer div que tenha algum desses ids, recebera*/
+                
+                #bordaGel,
+                #bordaMinox,
+                #bordaPos {
+                    border-radius: 20px;
+                    /*essa borda*/
+                }
+                
+                #botaoCalc:hover {
+                    /*quando o cursor estiver em cima da div botaocalc*/
+                    cursor: pointer;
+                    /*o ponteiro do mouse sera esse*/
+                    background-color: rgb(167, 185, 204);
+                    color: black;
+                }
+                
+                #mapa {
+                    margin: 75px 0 0 450px;
+                }
+                
+                #fachadaLoja,
+                #dentro {
+                    display: none;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: flex-start;
+                    margin-top: 75px;
+                    margin-left: 1200px;
+                    width: 600px;
+                    height: 450px;
+                    background-color: #DCDCDC;
+                    padding-top: 30px;
+                    border: black solid 10px;
+                    border-radius: 10px;
+                }
+                
+                #tiltLocal {
+                    margin-left: 100px;
+                    display: flex;
+                    height: 200px;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: space-between;
+                }
+                
+                #botaoloca, #botaoLocaMobile {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    position: relative;
+                    float: left;
+                    width: 150px;
+                    padding: 5px;
+                    background-color: gray;
+                    color: beige;
+                    border-radius: 20px;
+                }
+                #botaoLocaMobile{
+                    display: none;
+                }
+                
+                #botaoloca:hover {
+                    background-color: rgb(167, 185, 204);
+                    color: black;
+                    cursor: pointer;
+                }
+                
+                #localizacao2 {
+                    display: block;
+                }
+                
+                #informacoesFachada {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    margin-top: 10px;
+                    background-color: CornflowerBlue;
+                    border: black solid 2px;
+                    border-radius: 10px;
+                    padding: 10px;
+                }
+                
+                #copy {
+                    margin-top: 80px;
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: nowrap;
+                    justify-content: space-around;
+                    background-color:black;
+                    opacity: 0.7;
+                    margin-left: -10px;
+                    margin-bottom: -10px;
+                    margin-right: -5px;
+                    color: rgb(167, 185, 204);
+                }
+                
+                body {
+                    
+                    /* overflow-x: hidden; */
+                }
+                
+                #fotoAnim {
+                    margin-top: -700px;
+                }
+                
+                #popUpAv {
+                    display: none;
+                    flex-direction: column;
+                    position: fixed;
+                    top: 300px;
+                    left: 300px;
+                    width: 300px;
+                    height: 120px;
+                    background-color: rgb(12, 86, 110);
+                    padding: 10px;
+                    border-radius: 30px;
+                    border: rgb(12, 86, 110) solid 1px;
+                }
+                
+                #avaliacoes {
+                    display: flex;
+                    flex-direction: row;
+                }
+                
+                #x {
+                    margin-left: 280px;
+                }
+                
+                #x:hover {
+                    cursor: pointer;
+                    box-shadow: inset 5em 1em red;
+                }
+                
+                #est1,
+                #est2,
+                #est3,
+                #est4,
+                #est5:hover {
+                    cursor: pointer;
+                }
+                
+                #sugestaoDeMelhora {
+                    display: none;
+                }
+                
+                @media (max-width:600px) {
+                   
+                    #tabela {
+                        display: none;
+                    }
+                    #informacao,
+                    #servico2,
+                    #agendHor,
+                    #produtosVend,
+                    #localizacao2 {
+                        flex-wrap: nowrap;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: space-around;
+                        height: 1800px;
+                    }
+                    #fotoAnim {
+                        width: 400px;
+                        height: 400px;
+                    }
+                    
+                    #informacao {
+                        margin-top: -400px;
+                    }
+                    #titProdutosVend,
+                    #informaCont,
+                    #informaServ,
+                    #titAgendar,
+                    #tiltLocal {
+                        margin-left: 1000px;
+                    }
+                    #tiltLocal {
+                        margin-left: -400px;
+                    }
+                    #agendaCab1:hover #teste {
+                        /*toda vez q o mouse passar por cima da div agendaCab1
+        a div teste recebe essa borda*/
+                        border: 5px solid white;
+                    }
+                    #agendaCab1:hover #agendCab {
+                        color: black;
+                    }
+                    #agendaBarb1:hover #teste1 {
+                        /*toda vez q o mouse passar por cima da div agendaBarb1, a div teste1 recebe essa borda*/
+                        border: 5px solid white;
+                    }
+                    #agendaBarb1:hover #agendaBarb {
+                        color: black;
+                    }
+                    #agendaSob1:hover #teste2 {
+                        /*toda vez q o mouse passar por cima da div agendaSob1, a div teste 2 recebe essa borda*/
+                        border: 5px solid white;
+                    }
+                    #agendaSob1:hover #agendaSob {
+                        color: black;
+                    }
+                    #agendaSobNav1:hover #teste3 {
+                        /*toda vez q o mouse passar por cima da div agebdaSobNav1, a div teste3 recebe essa borda*/
+                        border: 5px solid white;
+                    }
+                    #agendaSobNav1:hover #agendaSobNav {
+                        color: black;
+                    }
+                    #compraPom:hover #bordaPom {
+                        /*toda vez q o mouse passar por cima da div compraPom, a div bordaPom recebe essa borda*/
+                        border: 5px solid white;
+                    }
+                    #compraPom:hover #pomada {
+                        /*toda vez q o mouse passar por cima da div compraPom, a div pomada recebe essa borda*/
+                        color: black;
+                        cursor: pointer;
+                        /*e esse ponteiro do mouse*/
+                    }
+                    #compGel:hover #bordaGel {
+                        /*toda vez q o mouse passar por cima da div compGel, a div borda gel recebe essa borda*/
+                        border: 5px solid white;
+                    }
+                    #compGel:hover #gel {
+                        /*toda vez q o mouse passar por cima da div compGel, a div gel recebe essa borda*/
+                        color: black;
+                        cursor: pointer;
+                        /*e esse ponteiro*/
+                    }
+                    #compMinox:hover #minox {
+                        /*toda vez q o mouse passar por cima da div comp Minox, a div minox recebe essa borda*/
+                        color: black;
+                        cursor: pointer;
+                        /*e esse ponteiro do mouse*/
+                    }
+                    #compMinox:hover #bordaMinox {
+                        /*toda vez q o mouse passar por cima da div comp minox, a div borda minox recebe essa borda*/
+                        border: 5px solid white;
+                    }
+                    #compPos:hover #posBarb {
+                        /*toda vez q o mouse passar por cima da div comp pos, a div pos barb recebe essa borda*/
+                        color: black;
+                        cursor: pointer;
+                        /*e esse ponteiro*/
+                    }
+                    #compPos:hover #bordaPos {
+                        /*toda vez q o mouse passar por cima da div compPos, a div borda pos recebe essa borda*/
+                        border: 5px solid white;
+                    }
+                    #env {
+                        margin-left: 10px;
+                    }
+                    #botaoloca{
+                        display: none;
+                    }
+                    #botaoLocaMobile{
+                        display: flex;
+                    }
+                    #mapa {
+                        margin: 75px 0 0 -50px;
+                    }
+                    #localizacao2{
+                        height: 900px;
+                    }
+                    #botaoTiraDuv{
+                        display: flex;
+                        border: 3px solid darkcyan;
+                    }
+                    #copy{
+                      flex-direction: column;
+                      justify-content: flex-start;
+                      align-items: center;
+                      padding: 0px;
+                      
+                    }
+                    #someCopy{
+                        display: none;
+                    }
+                    
+                }

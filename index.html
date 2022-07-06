@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>trabalho barbearia</title>
+    <link rel="stylesheet" href="estilos.css" type="text/css">
+</head>
+
+<body id="pagina">
+
+    <!--inicio do site, div com posicao fixa, que serve como menu de interecao para levar para qualquer area do site-->
+    <div id="tabela">
+        <!--logotipo da barra de interacao-->
+        <div id="texto">
+            <img src="logoBarrNav.png" width="130px" height="90px">
+        </div>
+        <!--atalho para scrollar o usuario ate a area de servicos-->
+        <div id="servicos">
+            <!--div para pegar a formacao e o atributo hover para as letras, inicialmente é um link, mas o css tira a formatacao de linha dos links dessa parte-->
+            <a onclick="desliza(1700);">Serviços</a>
+            <!--metodo onclick para chamar a funcao desliza no js, scrollando a pagina ate a area desejada-->
+        </div>
+        <!--atalho para scrollar o usuario ate a area de produtos-->
+        <div id="produtos">
+            <!--div para pegar a formatacao do texto da area produtos-->
+            <a onclick="desliza(3300);">Produtos</a>
+            <!--metodo onclick para chamar a funcao deslina no js, scrollando o usuario ate a area desejada-->
+        </div>
+        <div id="contato">
+            <!--div com a formatacao e atributo hover para as letras, inicialemente sendo um link, mas o css tira a linha dos links-->
+            <a onclick="desliza(810);">Contato</a>
+            <!--metodo onclick para chamar a funcao desliza para a area desejada-->
+        </div>
+        <div id="localizacao">
+            <!--div com a formatacao e atributo hover para as letras, inicialmente sendo um link, mas o css tira a linha dos links -->
+            <a onclick="desliza(4000);">Localização</a>
+            <!--metodo onclick chamando a funcao desliza para deslizar ate a area desejada-->
+        </div>
+        <div id="agendar" onclick="desliza(2400);">
+            <!--div com o link para a area agendar, é adicionado uma borda em volta do conteudo dela, e colocado o metodo onclick
+            tambem na div, pois caso a pessoa clicar fora da borda, tb é executada a mesma acao que quando clicar no link-->
+            <p>
+                <a onclick="desliza(2400);" id="agd">Agendar</a></p>
+            <!--quando clicado no link da frase agendar, é acionado a funcao desliza-->
+        </div>
+    </div>
+
+    <!--div que guarda a imagem do logo da empresa-->
+    <div id="logo">
+
+        <img src="logo.png" width="1400px" id="fotoAnim">
+    </div>
+    <div id="popUpAv">
+        <!--div que recebe a avaliacao do usuario sobre o site-->
+        <!--botao de fechar o pop up da tela, com o metodo onclick chamando a funcao fechar, passando como paratro o id da div-->
+        <img src="x.png" height="15px" width="15px" id="x" onclick="fechar(popUpAv);">
+        <!--div do titulo da secao-->
+        <h3 id="tiltAvalia">Como esta sua experiencia no site?</h3>
+        <!--div q guarda as estrelas de avaliacao do usuario-->
+        <div id="avaliacoes">
+            <!--cada estrela guarda um metodo de passar ou retirar o mouse de cima dela, chamando a mesma funcao, uma hora passando como parametro uma imagem de estrela vazia, outra hora uma estrela amarela, assim fazendo
+            a troca das estrelas a cada passar de mouse, é explicado detalhadamente na funcao no java script, tambem tem o metodo onclick, que bascimente interpreta a avalicao do usuario, tb explicado no js-->
+            <img src="estrela1.png" height="30px" width="30px" id="est1" onmouseout="trocaImg(1, 1);" onmouseover="trocaImg(1, 2);" onclick="avalia(1, tiltAvalia, avaliacoes, sugestaoDeMelhora);">
+            <img src="estrela1.png" height="30px" width="30px" id="est2" onmouseout="trocaImg(2, 1);" onmouseover="trocaImg(2, 2);" onclick="avalia(2, tiltAvalia, avaliacoes, sugestaoDeMelhora);">
+            <img src="estrela1.png" height="30px" width="30px" id="est3" onmouseout="trocaImg(3, 1);" onmouseover="trocaImg(3, 2);" onclick="avalia(3, tiltAvalia, avaliacoes, sugestaoDeMelhora);">
+            <img src="estrela1.png" height="30px" width="30px" id="est4" onmouseout="trocaImg(4, 1);" onmouseover="trocaImg(4, 2);" onclick="avalia(4, tiltAvalia, avaliacoes, sugestaoDeMelhora);">
+            <img src="estrela1.png" height="30px" width="30px" id="est5" onmouseout="trocaImg(5, 1);" onmouseover="trocaImg(5, 2);" onclick="avalia(5, tiltAvalia, avaliacoes, sugestaoDeMelhora);">
+
+
+
+        </div>
+        <input type="text" id="sugestaoDeMelhora">
+    </div>
+    <br><br><br>
+    <!--div que guarda a secao de informacoes para contato, tem o display flex com a direcao em linha, e flex wrap, q significa que se for necessario a quebra
+    de linha, ele quebra-->
+    <div id="informacao">
+        <div id="informaCont">
+            <!--div que guarda o titulo da secao-->
+            <h1><a>Contatos</a></h1>
+        </div>
+
+
+        <div id="whats">
+            <!--div com o link e as informacoes do whatsapp, com flex direction colum, e td alinhado no centro nos 2 eixos-->
+            <img src="wpp.png" width="60px" height="60px">
+            <a href="https://api.whatsapp.com/send/?phone=553799840117&text=Vi+o+site%2C+e+gostaria+de+agendar+um+Hor%C3%A1rio&app_absent=0" id="linkCor2">Numero whatsapp</a>
+            <!--numero do wpp-->
+            <h3>(37) 99984-0117</h3>
+        </div>
+        <div id="insta">
+            <!--div com o link e as informacoes da pagina do insta, com flex direction colum, e td alinhado no centro nos 2 eixos-->
+            <img src="insta.png" width="60px" height="60px">
+            <a href="https://www.instagram.com/hsbarberr/" id="linkCor3">Pagina do instagram</a>
+            <!--nome da pagina do insta-->
+            <h3>hsbarberr</h3>
+        </div>
+
+
+        <button id="email2" onclick="digEmail();">
+            <!--botao com id do email2 para edicao, é tirado suas bordas para nao parecer mais um botao-->
+            <!--imagem ilustrativa de um email-->               
+            <img src="email.png" width="250px" height="250px">
+        </button>
+
+        <div id="digEmail">
+            <!--div que inicialmente recebe display none no css, para ficar invisivel para o usuario, e somente quando o usuario 
+        clicar no botao do email, o java script coloca display inline nela, fazendo ela aparecer-->
+            <!--foi usado o site forms pree para enviar o formulario por email automaticamente para o dono do site-->
+            <form action="https://submit-form.com/MV7NvENz" target="_blank">
+
+                <label for="name">Nome</label>
+                <input type="text" id="nameEmail" name="name" placeholder="Nome" size="40" required="" />
+                <label for="email">Email</label>
+                <input type="email" id="emailEmail" name="email" placeholder="Email" required="" />
+                <label for="message">Assunto</label>
+                <textarea id="message" name="message" placeholder="Mensagem" required=""></textarea>
+                <button type="submit" id="enviar" onclick="envia(nameEmail, message, emailEmail);">enviar</button>
+                <span id="mensagem"></span>
+            </form>
+        </div>
+
+    </div>
+    <br><br><br> <br><br><br>
+
+    <!--div que guarda todo o conteudo da secao de servicos que a barbearia faz-->
+    <div id="servico2">
+        <!--div que guarda o titulo da secao-->
+        <div id="informaServ">
+
+            <h1><a>     Serviços   </a></h1>
+
+        </div>
+
+        <div id="ServCabelo">
+            <!--div com o link e as informacoes do servico corte de cabelo, com flex direction colum, e td alinhado no centro nos 2 eixos-->
+            <!--imagem ilustrativa do corte de cabelo, junto com as informacoes de preco-->
+            <img src="cbl.png" width="120px" height="120px" id="fotosServs">
+            <h5>Corte de cabelo na tesousa 15,00R$</h5>
+
+
+        </div>
+        <div id="ServBarb">
+            <!--div com o link e as informacoes do servico fazer a barba, com flex direction colum, e td alinhado no centro nos 2 eixos-->
+            <!--imagem ilustrativa da barba, junto com seu preco-->
+            <img src="barba.png" width="120px" height="120px" id="fotosServs">
+            <h5>Fazer a barba 10,00R$</h5>
+
+        </div>
+        <div id="ServSob">
+            <!--div com o link e as informacoes do servico sobrancelha, com flex direction colum, e td alinhado no centro nos 2 eixos-->
+            <!--imagem ilustrativa da sobrancelha, junto com seu preco-->
+            <img src="sobrancelha.png" width="120px" height="120px" id="fotosServs">
+            <h5>sobrancelha na pinça 20,00R$</h5>
+
+        </div>
+        <div id="ServSobNav">
+            <!--div com o link e as informacoes do servico sobrancelha na navalha, com flex direction colum, e td alinhado no centro nos 2 eixos-->
+            <!--imagem ilustrativa da sobrancelha na navalha, e seu preco-->
+            <img src="navalha.png" width="120px" height="120px" id="fotosServs">
+            <h5>sobrancelha na navalha 10,00 R$</h5>
+
+        </div>
+
+
+
+
+
+
+    </div>
+    <br><br><br><br>
+    <!--div com conteudo de agendar um horario, resposanvel por chamar o js para calcular precos e redirecionar para o wpp com o preco total dos servicoes pedidos-->
+    <div id="agendHor">
+        <!--div que guarda todo o conteudo da secao agendar horario, com display flex, com direcoes em linhas e tudo alinhado no centro nos dois eixos-->
+        <!--div com o titulo da secao-->
+        <div id="titAgendar">
+            <h1><a>Agende um horario</a></h1>
+        </div>
+        <!--a div inteira e guardada com um link, pois assim qualquer lugar q for clicado na div consegui aciona a funcao pedida, e n deixa nenhuma borda de botao automaticamente-->
+        <a id="agendaCab1" onclick="seleciona(agendCab, 0, env,0);">
+            <!--é passado para o js a funcao para chamar quando clicar na div, o parametro do id da div em q ele deve alterar, o numero a qual essa div é represtando no subvetor marcados,
+            o id do botao que calculara o preco dessa div, ou seja, qual o botao da secao q essa div esta q esta invisivel, e qual posicao da matriz na matriz marcados essa div esta "1 ou 2"-->
+
+            <!--e necessario duas divs uma dentro da outra, pois uma o css meche com o atributo hover em sua borda quando o usuario passa o mouse por cima, e outra o js coloca uma borda quando o usuario
+            seleciona, se fosse feito as duas coisas na mesma div daria conflito-->
+            <div id="teste">
+                <!--div que recebe a borda do css-->
+                <div id="agendCab">
+                    <!--div q guarda as informacoes de agendar cabelo, tb é a div q recebe a borda do js-->
+                    <!--a div tem display flex com direcao em colunas, e tudo alinhado no centro-->
+                    <!--informacoes para agendar cabelo-->
+                    <img src="cbl.png" width="120px" height="120px">
+                    <h5>15,00 R$</h5>
+                    <h5>clique aqui para marcar um horario</h5>
+
+                </div>
+            </div>
+        </a>
+        <!--a div inteira e guardada com um link, pois assim qualquer lugar q for clicado na div consegui aciona a funcao pedida, e n deixa nenhuma borda de botao automaticamente-->
+        <a id="agendaBarb1" onclick="seleciona(agendaBarb, 1, env,0);">
+            <!--é passado para o js a funcao para chamar quando clicar na div, o parametro do id da div em q ele deve alterar, o numero a qual essa div é represtando no subvetor marcados,
+            o id do botao que calculara o preco dessa div, ou seja, qual o botao da secao q essa div esta q esta invisivel, e qual posicao da matriz na matriz marcados essa div esta "1 ou 2"-->
+
+            <!--e necessario duas divs uma dentro da outra, pois uma o css meche com o atributo hover em sua borda quando o usuario passa o mouse por cima, e outra o js coloca uma borda quando o usuario
+            seleciona, se fosse feito as duas coisas na mesma div daria conflito-->
+            <div id="teste1">
+                <!--div que recebera a borda do hover do css, assim como explicado antes-->
+                <div id="agendaBarb">
+                    <!--div que guarda as informacoes de fazer a barba, e tb recebe a bordo do js quando selecionada essa opcao pelo usuario-->
+                    <img src="barba.png" width="120px" height="120px">
+                    <h5>10,00 R$</h5>
+                    <h5>clique aqui para marcar um horario</h5>
+                </div>
+            </div>
+        </a>
+        <!--a div inteira e guardada com um link, pois assim qualquer lugar q for clicado na div consegui aciona a funcao pedida, e n deixa nenhuma borda de botao automaticamente-->
+        <a id="agendaSob1" onclick="seleciona(agendaSob, 2, env,0);">
+            <!--é passado para o js a funcao para chamar quando clicar na div, o parametro do id da div em q ele deve alterar, o numero a qual essa div é represtando no subvetor marcados,
+            o id do botao que calculara o preco dessa div, ou seja, qual o botao da secao q essa div esta q esta invisivel, e qual posicao da matriz na matriz marcados essa div esta "1 ou 2"-->
+
+            <!--e necessario duas divs uma dentro da outra, pois uma o css meche com o atributo hover em sua borda quando o usuario passa o mouse por cima, e outra o js coloca uma borda quando o usuario
+            seleciona, se fosse feito as duas coisas na mesma div daria conflito-->
+            <div id="teste2">
+                <!--div que recebera a borda do css, assim como explicado antes-->
+                <div id="agendaSob">
+                    <!--div que guarda as informacoes de fazer a sobrancelha, e tb rebera a borda do js quando selecionada pelo usuario-->
+                    <img src="sobrancelha.png" width="120px" height="120px">
+                    <h5>20,00 R$</h5>
+                    <h5>clique aqui para marcar um horario</h5>
+                </div>
+            </div>
+        </a>
+        <!--a div inteira e guardada com um link, pois assim qualquer lugar q for clicado na div consegui aciona a funcao pedida, e n deixa nenhuma borda de botao automaticamente-->
+        <a id="agendaSobNav1" onclick="seleciona(agendaSobNav, 3, env,0);">
+            <!--é passado para o js a funcao para chamar quando clicar na div, o parametro do id da div em q ele deve alterar, o numero a qual essa div é represtando no subvetor marcados,
+            o id do botao que calculara o preco dessa div, ou seja, qual o botao da secao q essa div esta q esta invisivel, e qual posicao da matriz na matriz marcados essa div esta "1 ou 2"-->
+
+            <!--e necessario duas divs uma dentro da outra, pois uma o css meche com o atributo hover em sua borda quando o usuario passa o mouse por cima, e outra o js coloca uma borda quando o usuario
+            seleciona, se fosse feito as duas coisas na mesma div daria conflito-->
+            <div id="teste3">
+                <!--div que recebe a borda do css-->
+                <div id="agendaSobNav">
+                    <!--div que guarda as informaces de agendar a sobrancelha na navalha, e tb recebe a borda do js quando selecionada pelo usuario-->
+                    <img src="navalha.png" width="120px" height="120px">
+                    <h5>10,00 R$</h5>
+                    <h5>clique aqui para marcar um horario</h5>
+                </div>
+            </div>
+        </a>
+    </div>
+    <div id="env">
+        <!--quando clicado, dispara a funcao calcula para calcular o preco, e direcionar o usuario para o wpp da loja, com a mensagem customizada-->
+        <button type="submit" id="botaoCalc" onclick="calc();">Marcar horario 
+        <img src="wpp2.png" height="20px" width="20px"></button>
+    </div>
+    <!--div que guarda o botao de marcar horario, inicialmente nao aparece para o usuario, e só aparece na tela quando o js identifica pelas funcoes que existe alguma opcao marcada
+    na tela, ae ele aplica um display inline na div, fazendo-a aparecer-->
+
+    <br><br><br><br><br>
+    <!--div com o conteudo da secao dos produtos a venda-->
+    <div id="produtosVend">
+        <!--div que guarda o titulo da secao-->
+        <div id="titProdutosVend">
+            <h1><a>Produtos</a></h1>
+        </div>
+        <!--a div inteira e guardada com um link, pois assim qualquer lugar q for clicado na div consegui aciona a funcao pedida, e n deixa nenhuma borda de botao automaticamente-->
+        <a id="compraPom" onclick="seleciona(pomada, 0, env2,1);">
+            <!--é passado para o js a funcao para chamar quando clicar na div, o parametro do id da div em q ele deve alterar, o numero a qual essa div é represtando no subvetor marcados,
+            o id do botao que calculara o preco dessa div, ou seja, qual o botao da secao q essa div esta q esta invisivel, e qual posicao da matriz na matriz marcados essa div esta "1 ou 2"-->
+
+            <!--assim como na secao anterior, tambem foi necessario fazer duas divs para cada produto, para o css mecher na borda de uma, e o js em outra-->
+            <div id="bordaPom">
+                <div id="pomada">
+                    <!--div que guarda as informacoes do produto pomada-->
+                    <img src="pomada-efeitoseco.png" height="120px" width="120px">
+                    <h5> R$ 21,00 </h5>
+                    <h5>Clique aqui para comprar/ fazer pedido</h5>
+
+                </div>
+            </div>
+        </a>
+        <!--a div inteira e guardada com um link, pois assim qualquer lugar q for clicado na div consegui aciona a funcao pedida, e n deixa nenhuma borda de botao automaticamente-->
+        <a id="compGel" onclick="seleciona(gel, 1, env2,1);">
+            <!--é passado para o js a funcao para chamar quando clicar na div, o parametro do id da div em q ele deve alterar, o numero a qual essa div é represtando no subvetor marcados,
+            o id do botao que calculara o preco dessa div, ou seja, qual o botao da secao q essa div esta q esta invisivel, e qual posicao da matriz na matriz marcados essa div esta "1 ou 2"-->
+
+            <!--assim como na secao anterior, tambem foi necessario fazer duas divs para cada produto, para o css mecher na borda de uma, e o js em outra-->
+            <div id="bordaGel">
+                <div id="gel">
+                    <!--div que guarda as informacoes do produto gel-->
+                    <img src="gel.png" height="120px" width="120px">
+                    <h5> R$ 17,00</h5>
+                    <h5>Clique aqui para comprar/ fazer pedido</h5>
+                </div>
+            </div>
+        </a>
+        <!--a div inteira e guardada com um link, pois assim qualquer lugar q for clicado na div consegui aciona a funcao pedida, e n deixa nenhuma borda de botao automaticamente-->
+        <a id="compMinox" onclick="seleciona(minox, 2, env2,1);">
+            <!--é passado para o js a funcao para chamar quando clicar na div, o parametro do id da div em q ele deve alterar, o numero a qual essa div é represtando no subvetor marcados,
+            o id do botao que calculara o preco dessa div, ou seja, qual o botao da secao q essa div esta q esta invisivel, e qual posicao da matriz na matriz marcados essa div esta "1 ou 2"-->
+
+            <!--assim como na secao anterior, tambem foi necessario fazer duas divs para cada produto, para o css mecher na borda de uma, e o js em outra-->
+            <div id="bordaMinox">
+                <div id="minox">
+                    <!--div que guarda as infomacoes da compra do produto minoxidil-->
+                    <img src="minoxidil.png" width="120px" height="120px">
+                    <h5> R$ 50,00 </h5>
+                    <h5>Clique aqui para comprar/ fazer pedido</h5>
+                </div>
+            </div>
+        </a>
+        <!--a div inteira e guardada com um link, pois assim qualquer lugar q for clicado na div consegui aciona a funcao pedida, e n deixa nenhuma borda de botao automaticamente-->
+        <a id="compPos" onclick="seleciona(posBarb, 3, env2,1);">
+            <!--é passado para o js a funcao para chamar quando clicar na div, o parametro do id da div em q ele deve alterar, o numero a qual essa div é represtando no subvetor marcados,
+            o id do botao que calculara o preco dessa div, ou seja, qual o botao da secao q essa div esta q esta invisivel, e qual posicao da matriz na matriz marcados essa div esta "1 ou 2"-->
+
+            <!--assim como na secao anterior, tambem foi necessario fazer duas divs para cada produto, para o css mecher na borda de uma, e o js em outra-->
+            <div id="bordaPos">
+                <div id="posBarb">
+                    <!--div que guarda as informacoes da compra do produto pos barba-->
+                    <img src="PosBarb.png" width="120px" height="120px">
+                    <h5> R$ 45,00</h5>
+                    <h5>Clique aqui para comprar/ fazer pedido</h5>
+                </div>
+            </div>
+        </a>
+        <!--div que ficara oculta inicialmente, e so aparecera se o js verificar que existe alguma opcao marcada pelo usuario-->
+  
+        
+    </div>
+    <div id="env2">
+        <!--foi aplicado duas divs, pois a env 2 sera display none, para so aparecer quando o usuario clicar em algo, entao é mais dificil organizar as coisas nela, pelo fato de inicialmente ter display none-->
+        <!--ja a div botoes tem display flex com direcao em linha, mas como a div env 2 é pai dela, e tem display none, ela nao aparece, e mesmo assim pode ter display flex-->
+        <div id="botoes">
+        <!--os dois botoes de opcoes dos produtos, sendo o primeiro para compra do produto, e o segundo tendo um display none, sendo pra tirar duv, assim q o usuario colocar o mouse em cima da div env2, o segundo
+        botao aparece "botaoTiraDuv" -->
+        <!--cada botao chama uma funcao, sendo uma para calcular o preco total dos produtos, e a outra para tirar duv sobre os produtos, e cada um tem sua propria mensagem customizada-->
+            <button type="submit" id="botaoCalcProd" onclick="calcProds();">Efetuar compra
+            <img src="wpp3.png" width="30px" height="30px">
+            </button>
+            <button type="submit" id="botaoTiraDuv" onclick="tiraDuv();">Tirar Duvida 
+            <img src="wpp3.png" width="30px" height="30px">
+            </button>
+        </div>
+    </div>
+    <!--div responsavel por mostrar as informacoes de localizacao na pagina-->
+    <div id="localizacao2">
+        <!--titulo da secao-->
+        <div id="tiltLocal">
+            <h1><a>Localização</a></h1>
+            <!--botao para fazer a troca do google maps para imagens da fachada ou dentro da loja fica dentro da div do titulo, com um afastamento do topo para
+            sempre ficar centralizado e posicionado no mesmo lugar-->
+            <a onclick="autorizacao(450,1300,-820,1300,450,0);" id="botaoloca"><i>
+                <!--id na tag de texto e referente para trocar a mensagem dentro da tag pelo js-->
+                <span id="mensagem2">mostrar entrada</span></i>
+            </a>
+            <a onclick="autorizacao(-50,600,-500,600,-50,1);" id="botaoLocaMobile"><i>
+                <span id="mensagem2mobile">mostrar entrada</span>
+            </i></a>
+        </div>
+        <!--iframe com localizacao do mapa, q aparece inicialmente-->
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d934.5180934884722!2d-45.43604417082088!3d-20.462220399144243!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94b4edc5a7144aa9%3A0x9626f70ac55a1ecc!2sHS%20Barber!5e0!3m2!1spt-BR!2sbr!4v1656431515194!5m2!1spt-BR!2sbr"
+            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" id="mapa">
+        </iframe>
+        <!--div da fachada da loja, q incialmente tem display none-->
+        <div id="fachadaLoja">
+            <!--guarda as imagens da fachada, e informacoes de endereco-->
+            <img src="fachada.png" width="450" height="300" id="imgFacha">
+            <div id="informacoesFachada">
+                <i><h3>Formiga-MG</h3></i>
+                <i>Endereço: Praça Florêncio Rodrigues Nunes sobrinho</i>
+                <i>Numero:15</i>
+                <i>Horario: Terça a Sabado, 7:00 as 20:00</i>
+            </div>
+        </div>
+        <div id="dentro">
+            <!--div q guarda as fotos de dentro da barbearia-->
+            <img src="fotoDentro.png" width="450" height="300">
+        </div>
+    </div>
+
+    <div id="copy">
+        <!--div que guarda os direitos autorais, com display flex para estes elementos aparecerem um ao lado do outro-->
+        <img src="logoBarrNav.png" width="100px" height="60px" id="fotoCopy">
+        <i><h4> © 2022 hsbarberr | by Sofia Montes & Vitor Rodrigues</h4></i>
+        <i id="someCopy"><h4>Todos os direitos reservados</h4></i>
+    </div>
+
+
+
+
+
+
+
+    <script>
+        //funcao responsavel por deslizar o usuario pra qualquer parte do codigo, recebendo o y que é o eixo vertical de ate
+        //onde deve scrollar o usuario
+        function desliza(y) {
+            y = parseInt(y); //transforma o y passado como parametro para inteiro
+            //usa o metodo scrool para levar o usuario ate a  parte passada como parametro
+            window.scrollTo(0, y);
+        }
+
+        let estadoEmail = 0; //estado da caixa de email da secao contatos, se 1 ela esta aparecendo, se 0, esta oculta
+
+        function digEmail() {
+            //funcao responsavel por abrir o campo para o usuario digitar o email
+            let campoEmail = document.getElementById("digEmail");
+            //pega do html pelo id o elemento dig email, ou seja, toda a div que tem esse id
+            //se o estado do email for 0, entao ele estava oculto
+            if (estadoEmail == 0) {
+                campoEmail.style.display = "flex"; //entao faz ele aparecer, dando um display inline
+
+                document.getElementById("nameEmail").focus(); //aplica um foco na primeira caixa de texto do email
+                estadoEmail++; //altera o estado do email no java script
+            } else { //se falso que era 0, entao é 1
+                //se era 1, entao o campo do email estava aparecendo
+                campoEmail.style.display = "none"; //se estava aparecendo, entao é aplicado a sua div um display none, para essa div sumir
+                estadoEmail--; //o estado da div no js é voltado para 0
+            }
+
+
+        }
+
+        function fechaEmail() {
+            //funcao responsavel por resetar os campos e a mensagem de erro da div dig email para vazio novamente
+            let campoEmail = document.getElementById("digEmail");
+
+            campoEmail.style.display = "none"; //faz a div do email desaparecer
+            document.getElementById("mensagem").innerHTML = ""; //a mensagem de erro ou sucesso é apagada
+            let valores = [document.getElementById("nameEmail"), document.getElementById("emailEmail"), document.getElementById("message")];
+            for (let i = 0; i < 3; i++) {
+                valores[i].value = "";
+            }
+        }
+
+        function envia(id, id1, id2) {
+            //funcao responsavel por verificar se o usuario digitou um email correto    
+
+            let a = "a";
+            a += id.value;
+            let b = "a";
+            b += id1.value;
+
+            if (a == "a") {
+                document.getElementById("mensagem").innerHTML = "O campo de nome nao pode estar vazio";
+                return false;
+            }
+            if (id2.value.indexOf("@") == -1 || id2.value.indexOf(".") == -1) {
+                //e o email n teve @ ou . dispara a mensagem no campo de texto mensagem    
+                document.getElementById("mensagem").innerHTML = "Digite um email valido";
+                return false; //da return no codigo da funcao, e a execucao da funcao termina aqui
+
+            }
+
+            if (b == "a") {
+                document.getElementById("mensagem").innerHTML = "O campo de assunto nao pode estar vazio";
+                return false;
+            }
+            //caso o email teve os 2, entao o bloco de codigo do if e ignorado, e se n estava errada a digitacao, entao esta certa
+            //é exibido a mensagem email enviado com sucesso no campo de texto mensagem, e dps de 5 segungos, chama a funcao fecha email    
+            document.getElementById("mensagem").innerHTML = "Email enviado Com sucesso";
+            setTimeout(fechaEmail, 5000);
+        }
+        //matriz que representa o estado das opcoes que podem ser marcadas
+        let marcados = [
+            [0, 0, 0, 0],
+            [0, 0, 0, 0]
+        ];
+
+        function apareceBtn(idbotao, vetorMarc) {
+            //funcao responsavel por verificar se o botao passado como parametro para ela deve ou nao aparecer    
+            for (let i = 0; i < 4; i++) {
+                //se o vetor de marcados na posicao passada como parametro 2 e no numero do ciclo for atual for 1
+                if (marcados[vetorMarc][i] == 1) {
+
+                    idbotao.style.display = "flex"; //entao colocar display inline no id do botao passado para funcao
+                    return true; //e se tem pelo menos uma opcao marcada, entao ja é suficiente para o botao aparecer
+
+                }
+            }
+            //se durante todo o ciclo for n foi encontrado nenhuma posicao do vetor igual a 1, entao nao tem nenhuma opcao marcada
+            //logo a execucao do codigo nao para dentro do if, e o fluxo atinge esse comentario
+            idbotao.style.display = "none"; //e se n foi encontrado nada igual a 1, entao nao tem nada marcado, logo o botao deve sumir da tela
+            //entao é aplicado um display none a div
+        }
+
+        function seleciona(id, posicao, idbotao, vetorMarcados) {
+            //funcao responsavel por selecionar uma posicao marcada pelo usuario, e colocar a borda nuam div
+            //se marcados na posicao passada como parametro for 0, entao a opcao esta desmarcada         
+            if (marcados[vetorMarcados][posicao] == 0) {
+                //se estiver desmarcada, colocar uma borda nela para sinalizar para o usuario q ela esta marcada
+                id.style.border = "5px solid darkcyan";
+                //e na posicao passada na matriz marcados, no js, colocar um 1, q significa para o computador q aquela opcao esta marcada
+                marcados[vetorMarcados][posicao] = 1;
+            } else { //se falso q é igual a 0, entao essa opcao esta marcada
+                //entao tirar a borda da opcao, pois o usuario quer desmarcala
+                id.style.border = "none";
+                //desmarcar tb no js
+                marcados[vetorMarcados][posicao] = 0
+            }
+            //chama a funcao apareceBtn para verificar se o botao da div q chamou essa funcao deve ou nao aparecer
+            apareceBtn(idbotao, vetorMarcados);
+
+        }
+
+        function calc() {
+            //funcao responavel por calcular o preco na div servicos
+            let soma = 0; //var q guarda a soma de tudo q o usuario pediu
+            //var que guarda o preco de cada item na mesma ordem em q as divs aparecem
+            let precos = [15, 10, 20, 10];
+            //var q guarda os indices que estao marcados
+            let indices = [];
+            //é perguntado o nome do usuario para ser inserido na mensgem customizada
+            let nome = window.prompt("digite seu nome:");
+            //dps de pego o nome do usuario, é contatenada com a mensagem
+            let mensagem = "Ola, Meu nome é " + nome + " ";
+            //vetor q guarda as mensagem para cada pedido
+            const pedidos = [" quero cortar o cabelo de R$ 15,00", " quero fazer a barba R$ 10,00", " quero fazer a sobrancelha R$ 20,00", " quero fazer a sobrancelha na navalha R$ 10,00"];
+            for (let i = 0; i < 4; i++) {
+                //se a opcao esta marcada, entao 
+                if (marcados[0][i] == 1) {
+                    soma += precos[i]; //somar o preco dela na posicao do vetor de precos a soma
+                    indices.push(i); //guardar o seu indice
+                }
+
+            }
+            for (let i = 0; i < indices.length; i++) {
+                //enquanto o vetor de indices nao terminou
+                //contatenar com a var mensagem o texto de pedidos na posicao do indice q representa o produto pedido
+                mensagem += pedidos[indices[i]];
+                //se i+1 é igual a quantidade de elementos do vetor
+                if (i + 1 == indices.length) {
+                    //entao terminar a mensagem com uma virgula, e com a informacao do preco total
+                    mensagem += ", ";
+                    mensagem += "totalizando um valor de R$ " + soma + ",00.";
+                } else {
+                    //se nao, entao somente adicionar uma virgula e um espaco
+                    mensagem += ",";
+                }
+
+            }
+            //depois de formada a mensagem e o preco calculado, no link do wpp na area text, é contatenado ao texto do link a mensagem customizada
+            window.location.href = "https://api.whatsapp.com/send/?phone=5569981695709&text=" + mensagem + "&app_absent=0";
+
+
+        }
+
+        function calcProds() {
+            //funcao responsavel por calcular o preco dos produtos, o comportamento é igual a de cima, so muda as mensagens e os precos
+            let soma = 0;
+            let precos = [21, 17, 50, 45];
+            let indices = [];
+            let nome = window.prompt("digite seu nome:");
+            let mensagem = "Ola, meu nome é " + nome + " ";
+            const pedidos = ["quero comprar uma pomada de R$ 21,00", "quero comprar um gel de R$ 17,00", "quero comprar um minoxidil de R$50,00", "quero comprar um pós Barba de R$ 45,00"];
+            for (let i = 0; i < marcados[1].length; i++) {
+                if (marcados[1][i] == 1) {
+                    soma += precos[i];
+                    indices.push(i);
+                }
+            }
+            for (let i = 0; i < indices.length; i++) {
+                mensagem += pedidos[indices[i]];
+                if (i + 1 == indices.length) {
+                    mensagem += ", totalizando um valor de R$ " + soma + ",00";
+                } else {
+                    mensagem += ",";
+                }
+            }
+            window.location.href = "https://api.whatsapp.com/send/?phone=5569981695709&text=" + mensagem + "&app_absent=0";
+
+        }
+
+        function tiraDuv() {
+            //funcao responsavel por fazer uma mensagem pree pronta sobre as duvidas do usuario em relacao a alguns produtos
+            //var com as mensagens possiveis para as duvidas
+            const duvidas = ["sobre o produto pomada", "sobre o produto gel", "sobre o produto minoxidil", "sobre o produto pós Barba"];
+            //é puchado o nome do usuario para a variavel nome pelo prompt
+            let nome = window.prompt("digite seu nome:");
+            //é contatenado o nome com a mensagem pree pronta
+            let mensagem = "ola, meu nome é " + nome + ", queria tirar algumas duvidas ";
+            let indices = []; //indices dos produtos a qual o usuario deseja tirar duv
+            for (let i = 0; i < marcados[1].length; i++) {
+                if (marcados[1][i] != 0) { //se o produto na posicao atual for diferente de 0
+                    indices.push(i); //entao puchar o seu indice, pois se ele nao é 0, entao ele esta marcado
+                }
+            }
+            for (let i = 0; i < indices.length; i++) {
+                //ciclo de repeticao responsavel por formar a mensagem customizada do usuario
+                //é contatenado com a mensagem customizada o vetor de duvidas na posicao de cada indice marcada pelo usuario
+                mensagem += duvidas[indices[i]];
+                if (i + 1 == indices.length) {
+                    //se o tamanho final do vetor foi atingido, finalizar a mensagem com isso
+                    mensagem += ", minha duvida é:";
+                } else { //se nao, contatenar uma virgula
+                    mensagem += ", ";
+                }
+            }
+            //depois de contatenada a mensagem, contatenar a mensagem customiazda com o link do wpp, e enviar o usuario para o link
+            window.location.href = "https://api.whatsapp.com/send/?phone=5569981695709&text=" + mensagem + "&app_absent=0";
+
+
+        }
+        //vetor com o id das divs de localizacao, referentes ao mapa do google maps da loja, a div com a foto da fachada e as informacoes de endereço, e a div das fotos de dentro da barbearia
+        let objetos = [document.getElementById("mapa"), document.getElementById("fachadaLoja"), document.getElementById("dentro")];
+        let elementosText = [document.getElementById("mensagem2"), document.getElementById("mensagem2mobile")];
+        let atual = 0; //objeto atual que esta sendo mostrado
+        //textos que devem aparecer a cada vez q o objeto trocar, na mesma ordem q o vetor objetos
+        let textos = ["mostrar entrada", "mostrar loja", "mostrar google maps"];
+        //i representa a posicao atual da div q esta sendo mostrada na tela, ou seja, se a div mapa esta sendo mostrada na tela, na animacao, ela seguira os valores de i
+        let i = 450;
+        //a representa os valores da div que entrada na animacao, ou seja, se estava a imagem do google maps, e vai entrar a div da fachada da loja, essa div seguira os valores de a na animacao
+        let a = 1300;
+        let pararDiv = -820;
+        let pararDiv2 = 1300;
+        let pararDiv3 = 450;
+        //var que representa a autorizacao para fazer a animacao
+        let aut = 0;
+        let pcOuM = 0;
+
+        //funcao responsavel por fazer a animacao
+        function muda() {
+            //ela somente começa a animacao se aut for 1, e anima o primeiro objeto ate q ele chegue na posicao -820
+            if (i > pararDiv && aut == 1) {
+                //a propriedade margin do css muda seu afastamente da direita de acordo com o valor de i a cada vez q a funcao e chamada
+                objetos[atual].style.margin = "75px 0 0 " + i + "px";
+                i -= 10; //decrementa i em 10;
+            } else //quando i chegar a -821, entao a animacao elem q deve sair da tela acabou
+            if (a == pararDiv2 && aut == 1) {
+                //somente quando a for igual a 1300, que ocorrera somente uma vez no processo da animacao, entao
+                //o segundo elemen e puchado para 1300 px de afastamento da esquerda
+                objetos[atual].style.margin = "75px 0 0 1300px";
+                objetos[atual].style.display = "none"; //desaparece com o elem que seguia as posicoes de i
+                //faz proximo elemento aparecer
+                objetos[(atual + 1) % 3].style.display = "flex";
+                a -= 10; //decrementa a em 10
+            } else //depois disso, começa a animacao do proximo elem na proxima chamada da funcao
+            if (a > pararDiv3 && aut == 1) {
+                //o proximo elem segui os valores de a ate q a seja < q 451
+                //(atual +1)%3 sempre tera como resultado o proximo elem q deve ser animado, pq resto da divisao de 1 por 3 é 1, 2 por 3 é 2, e 3 por 3 é 0
+                objetos[(atual + 1) % 3].style.margin = "75px 0 0 " + a + "px";
+                a -= 10; //decrementa a em 10 a cada chamada, ate q a seja < 450
+
+
+            } else //quando falso tb essa condicao, entao a animacao ja terminou
+            if (aut == 1) {
+
+                //volta os valores das variaveis para o estado normal
+                i = 450;
+                a = 1300;
+                aut = 0;
+                atual = (atual + 1) % 3; //passa o valor de atual para o proximo valor do ciclo
+                //troca o texto do botao da animacao
+                elementosText[pcOuM].innerHTML = textos[atual];
+            }
+
+        }
+
+        
+        function autorizacao(i2,a2,q, w, r, PouM) {
+            //funcao responsavel por quando o usuario clicar no botao da animacao, mudar o valor da valor q autoriza o programa a animar as divs de localizacao para 1
+            if(aut == 0){
+                i = parseInt(i2);
+                a = parseInt(a2);
+                pararDiv = parseInt(q);
+                pararDiv2 = parseInt(w);
+                pararDiv3 = parseInt(r);
+            }
+            aut = 1;
+            pcOuM = parseInt(PouM);
+        }
+        setInterval(muda, 1); ////funcao responsavel por animar as divs de localizacao e chamda de 1 em 1 milisegundo
+        //pucha o elemento da foto da logo da pagina, para fazer a animacao
+        let foto = document.getElementById("fotoAnim");
+        //afastamento inicial em que a foto começara
+        let z = -700;
+        //variavel que representa se a animacao ja foi feita ou nao
+        let troca = 0;
+
+        function animfoto() {
+            //anima a foto ate q z seja maior q 20
+            if (z < 20 && troca == 0) {
+                foto.style.margin = z + "px 0 0 0";
+                z++;
+            } else //depois q z é maior q 20, sobe a foto um pouco, para dar um efeito a mais na animacao
+            //e essa subida vai ate q z seja > -30
+            if (z > -30) {
+                troca = 1; //troca vai para um, para que o if de cima n atrapalhe a animacao
+                foto.style.margin = z + "px 0 0 0";
+                z -= 0.1;
+            }
+        }
+        //funcao que anima a logo do site é chamada de 1 em 1 milisegundo
+        setInterval(animfoto, 1);
+        //funcao responsavel por aparecer o pop up de avaliacao do site
+        function aparecePopUp() {
+            //quando chamada, aplica um display flex na div do pop up
+            document.getElementById("popUpAv").style.display = "flex";
+        }
+        //depois de 5 segundos q o site abriu, faz o pop up aparecer
+        setTimeout(aparecePopUp, 5000);
+
+        function trocaImg(numero, imagem) {
+            //funcao responsavel por trocar as estrelas de avaliacao quando o usuario passar o mouse por cima
+            //recebe como parametro o numero da estrela q ele passou o mouse por cima, e a imagem em q deve adicionar
+            //transforma o numero da estrela em um inteiro
+            numero = parseInt(numero);
+            //i recebe o numero da estrela, e ate q i seja 1, troca a imagem de cada div de cada estrela
+            for (let i = numero; i > 0; i--) {
+                //contatena est com o i atual do for, chegando ao id da estrela, e troca o src dela, q é a imagem q o elemento guarda
+                //o elemento recebe a imagem pedida como parametro
+                document.getElementById("est" + i).src = "estrela" + imagem + ".png";
+            }
+            return true;
+        }
+
+        function fechar(id) {
+            //funcao responsavel por fechar um pop up na tela quando clicado pelo usuario, recebendo o id do elemento
+            id.style.display = "none"; //aplica um display none ao elemento
+        }
+        let mensagemSugestao = 0; //var que controla o enter para chamar a funcao envia sugestao para ela disparar somente quando a 
+        //a mensagem pedindo sugestao de melhoras aparecer no pop up av
+        function avalia(numero, id, id2, id3) {
+            //funcao responsavel por interpretar os dados de avaliacao do usuario, e retornar uma mensagem do vetor
+            let mensagens = ["Desculpe pela incoviniencia, poderia nos dizer no que melhorar?",
+                "Desculpe pela incoviniencia, poderia nos dizer no que melhorar?",
+                "Desculpe pela incoviniencia, poderia nos dizer no que melhorar?", "Muito obrigado pela avaliação!", "Muito obrigado pela avaliação!"
+            ];
+            //converte o numero da estrela clicada em um inteiro
+            numero = parseInt(numero);
+            id2.style.display = "none"; //desaparece com o 2 id passado como argumento, q no caso sempre sera o id das estrelas de avalicoes
+            //troca a mensagem do primeiro id para a mensagem referente dentro do vetor de mensagens
+            id.innerHTML = mensagens[numero - 1];
+            //se a avalicao foi maior ou igual a 4, entao
+            if (numero >= 4) {
+                //depois de 3 segundos, fechar a div popupav 
+                setTimeout(fechar, 3000, popUpAv);
+            } else { //se falso, apareça com a caixa de texto q o id foi passado como 3 argumento
+                id3.style.display = "block";
+                //e mude o valor de mensagem sugestao para 1, para a partir de agora a funcao enviaSugest aceitar o enter para enviar a sugestao digitada
+                mensagemSugestao = 1;
+            }
+
+        }
+
+        function enviaSugest(evento) {
+            //funcao responsavel por pepgar oq foi digitado pelo usuario na div sugestao de melhora, no pop up de avaliacoes
+            //é acionado ao clicar de qualquer tecla, mas o corpo do codigo dela só é executado se essa tecla for enter, e se a funcao acima tiver autorizado ela a funcionar
+            if (evento.keyCode == 13 && mensagemSugestao == 1) {
+                //pega os ids do tit do popupav, e do campo de texto
+                let a = document.getElementById("tiltAvalia");
+                let b = document.getElementById("sugestaoDeMelhora");
+
+                b.style.display = "none"; //some com o campo de texto, pois se o usuario pediu pra enviar, nao é necessario mais mostrar o campo
+                //mostra a mensagem no tiltAvalia
+                a.innerHTML = "Muito obrigado pela sugestao, iremos fazer o possivel para melhorar!"
+                    //depois de 3 segundos, fecha a div
+                setTimeout(fechar, 3000, popUpAv);
+            }
+        }
+        //ao clicar de qualquer tecla, o evento document.onkeydown chamada a funcao envia sugest, passando como parametro o evento q a chamou, ou seja, todos os eventos relacionados ao clicar de uma tecla
+        document.onkeydown = enviaSugest;
+    </script>
+
+</body>
+
+
+</html>
