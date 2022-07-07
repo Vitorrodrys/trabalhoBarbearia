@@ -298,23 +298,32 @@ e o ponteiro do mouse para pointer*/
                 
                 #digEmail {
                     /*id da div da caixa de dig do contato por email*/
-                    display: none;
+                    display: flex;
+                    visibility: hidden;
                     /*recebe um display none, para nao aparecer*/
                     background-color: white;
                     /*recebe essa cor de fundo*/
                     border-radius: 10px;
                     /*recebe um arredondamento das bordas de 10px*/
                     border: #DCDCDC solid 2px;
-                    height: 220px;
+                    height: 0;
                     /*recebe uma altura de 220 px*/
-                    width: 350px;
+                    width: 0;
                     /*recebe uma largura de 350px*/
                     font-size: 20px;
                     /*tamanho da fonte das letras dentro da div*/
                     /*tipo da fonte  das letras dentro da div*/
                     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
                     color: black;
+                    transition: 1.6s;
+                    overflow: hidden;
                     /*cor das letras da div*/
+                }
+                
+                #digEmail.animaEmail {
+                    visibility: visible;
+                    height: 230px;
+                    width: 350px;
                 }
                 
                 #digEmail form {
@@ -775,10 +784,12 @@ e o ponteiro do mouse para pointer*/
                     left: 300px;
                     width: 0px;
                     height: 0px;
-                    background-color: rgb(12, 86, 110);
+                    background-color: white;
+                    opacity: 0.7;
                     padding: 10px;
                     border-radius: 30px;
                     border: rgb(12, 86, 110) solid 1px;
+                    font-weight: bolder;
                     transition: 1.0s;
                     overflow: hidden;
                 }
@@ -800,7 +811,7 @@ e o ponteiro do mouse para pointer*/
                 
                 #x:hover {
                     cursor: pointer;
-                    box-shadow: inset 5em 1em red;
+                    box-shadow: inset 5em 1em #8B0000;
                 }
                 
                 #est1,
@@ -967,5 +978,9 @@ e o ponteiro do mouse para pointer*/
                     }
                     #someCopy {
                         display: none;
+                    }
+                    #popUpAv {
+                        top: 200px;
+                        left: 100px;
                     }
                 }

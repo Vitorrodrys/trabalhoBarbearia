@@ -110,7 +110,7 @@
         </div>
 
 
-        <button id="email2" onclick="digEmail();">
+        <button id="email2" onclick="diigEmail(digEmail, nameEmail);">
             <!--botao com id do email2 para edicao, é tirado suas bordas para nao parecer mais um botao-->
             <!--imagem ilustrativa de um email-->               
             <img src="email.png" width="250px" height="250px">
@@ -128,7 +128,7 @@
                 <input type="email" id="emailEmail" name="email" placeholder="Email" required="" />
                 <label for="message">Assunto</label>
                 <textarea id="message" name="message" placeholder="Mensagem" required=""></textarea>
-                <button type="submit" id="enviar" onclick="envia(nameEmail, message, emailEmail);">enviar</button>
+                <button type="submit" id="enviar" onclick="envia(nameEmail, message, emailEmail, mensagem);">enviar</button>
                 <span id="mensagem"></span>
             </form>
         </div>
@@ -402,40 +402,19 @@
 
 
     <script>
-        let estadoEmail = 0; //estado da caixa de email da secao contatos, se 1 ela esta aparecendo, se 0, esta oculta
+        function diigEmail(id, id2, id3, id4, id5, id6) {
+            console.log(id);
+            id.classList.toggle('animaEmail');
+            id2.focus();
 
-        function digEmail() {
-            //funcao responsavel por abrir o campo para o usuario digitar o email
-            let campoEmail = document.getElementById("digEmail");
-            //pega do html pelo id o elemento dig email, ou seja, toda a div que tem esse id
-            //se o estado do email for 0, entao ele estava oculto
-            if (estadoEmail == 0) {
-                campoEmail.style.display = "flex"; //entao faz ele aparecer, dando um display inline
-
-                document.getElementById("nameEmail").focus(); //aplica um foco na primeira caixa de texto do email
-                estadoEmail++; //altera o estado do email no java script
-            } else { //se falso que era 0, entao é 1
-                //se era 1, entao o campo do email estava aparecendo
-                campoEmail.style.display = "none"; //se estava aparecendo, entao é aplicado a sua div um display none, para essa div sumir
-                estadoEmail--; //o estado da div no js é voltado para 0
-            }
-
-
+            id3.value = "";
+            id4.value = "";
+            id5.value = "";
+            id6.innerHTML = "";
         }
 
-        function fechaEmail() {
-            //funcao responsavel por resetar os campos e a mensagem de erro da div dig email para vazio novamente
-            let campoEmail = document.getElementById("digEmail");
 
-            campoEmail.style.display = "none"; //faz a div do email desaparecer
-            document.getElementById("mensagem").innerHTML = ""; //a mensagem de erro ou sucesso é apagada
-            let valores = [document.getElementById("nameEmail"), document.getElementById("emailEmail"), document.getElementById("message")];
-            for (let i = 0; i < 3; i++) {
-                valores[i].value = "";
-            }
-        }
-
-        function envia(id, id1, id2) {
+        function envia(id, id1, id2, id3) {
             //funcao responsavel por verificar se o usuario digitou um email correto    
 
             let a = "a";
@@ -444,24 +423,24 @@
             b += id1.value;
 
             if (a == "a") {
-                document.getElementById("mensagem").innerHTML = "O campo de nome nao pode estar vazio";
+                id3.innerHTML = "O campo de nome nao pode estar vazio";
                 return false;
             }
             if (id2.value.indexOf("@") == -1 || id2.value.indexOf(".") == -1) {
                 //e o email n teve @ ou . dispara a mensagem no campo de texto mensagem    
-                document.getElementById("mensagem").innerHTML = "Digite um email valido";
+                id3.innerHTML = "Digite um email valido";
                 return false; //da return no codigo da funcao, e a execucao da funcao termina aqui
 
             }
 
             if (b == "a") {
-                document.getElementById("mensagem").innerHTML = "O campo de assunto nao pode estar vazio";
+                id3.innerHTML = "O campo de assunto nao pode estar vazio";
                 return false;
             }
             //caso o email teve os 2, entao o bloco de codigo do if e ignorado, e se n estava errada a digitacao, entao esta certa
             //é exibido a mensagem email enviado com sucesso no campo de texto mensagem, e dps de 5 segungos, chama a funcao fecha email    
-            document.getElementById("mensagem").innerHTML = "Email enviado Com sucesso";
-            setTimeout(fechaEmail, 5000);
+            id3.innerHTML = "Email enviado Com sucesso";
+            setTimeout(diigEmail, 5000, digEmail, nameEmail, id, id1, id2, id3);
         }
         //matriz que representa o estado das opcoes que podem ser marcadas
         let marcados = [
@@ -542,7 +521,7 @@
 
             }
             //depois de formada a mensagem e o preco calculado, no link do wpp na area text, é contatenado ao texto do link a mensagem customizada
-            window.location.href = "https://api.whatsapp.com/send/?phone=5569981695709&text=" + mensagem + "&app_absent=0";
+            window.location.href = "https://api.whatsapp.com/send/?phone=553799840117&text=" + mensagem + "&app_absent=0";
 
 
         }
@@ -569,7 +548,7 @@
                     mensagem += ",";
                 }
             }
-            window.location.href = "https://api.whatsapp.com/send/?phone=5569981695709&text=" + mensagem + "&app_absent=0";
+            window.location.href = "https://api.whatsapp.com/send/?phone=553799840117&text=" + mensagem + "&app_absent=0";
 
         }
 
@@ -599,7 +578,7 @@
                 }
             }
             //depois de contatenada a mensagem, contatenar a mensagem customiazda com o link do wpp, e enviar o usuario para o link
-            window.location.href = "https://api.whatsapp.com/send/?phone=5569981695709&text=" + mensagem + "&app_absent=0";
+            window.location.href = "https://api.whatsapp.com/send/?phone=553799840117&text=" + mensagem + "&app_absent=0";
 
 
         }
@@ -653,6 +632,7 @@
                 aut = 0;
                 atual = (atual + 1) % 3; //passa o valor de atual para o proximo valor do ciclo
                 //troca o texto do botao da animacao
+                console.log(textos[atual]);
                 elementosText[pcOuM].innerHTML = textos[atual];
             }
 
@@ -683,13 +663,13 @@
             //anima a foto ate q z seja maior q 20
             if (z < 20 && troca == 0) {
                 foto.style.margin = z + "px 0 0 0";
-                z++;
+                z += 5;
             } else //depois q z é maior q 20, sobe a foto um pouco, para dar um efeito a mais na animacao
             //e essa subida vai ate q z seja > -30
             if (z > -30) {
                 troca = 1; //troca vai para um, para que o if de cima n atrapalhe a animacao
                 foto.style.margin = z + "px 0 0 0";
-                z -= 0.1;
+                z -= 0.6;
             }
         }
         //funcao que anima a logo do site é chamada de 1 em 1 milisegundo
@@ -763,6 +743,7 @@
         const MenuMobile = document.getElementById("menuBase");
         const nav = document.getElementById("nav");
 
+
         function abreNav() {
             nav.classList.toggle('aparece');
         }
@@ -780,6 +761,7 @@
         }
 
         MenuMobile.addEventListener('click', abreMenu);
+
         //funcao responsavel por deslizar o usuario pra qualquer parte do codigo, recebendo o y que é o eixo vertical de ate
         //onde deve scrollar o usuario
         function desliza(y, z) {
