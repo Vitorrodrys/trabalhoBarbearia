@@ -12,12 +12,12 @@
 <body id="pagina">
 
     <!--inicio do site, div com posicao fixa, que serve como menu de interecao para levar para qualquer area do site-->
-    
+
     <div id="tabela">
         <!--logotipo da barra de interacao-->
-        
+
         <div id="menuCell">
-            
+
             <a id="menuBase"></a>
         </div>
         <div id="nav">
@@ -27,35 +27,35 @@
             <!--atalho para scrollar o usuario ate a area de servicos-->
             <div id="servicos">
                 <!--div para pegar a formacao e o atributo hover para as letras, inicialmente é um link, mas o css tira a formatacao de linha dos links dessa parte-->
-                <a onclick="desliza(1700);">Serviços</a>
+                <a onclick="desliza(1700,2500);">Serviços</a>
                 <!--metodo onclick para chamar a funcao desliza no js, scrollando a pagina ate a area desejada-->
             </div>
             <!--atalho para scrollar o usuario ate a area de produtos-->
             <div id="produtos">
                 <!--div para pegar a formatacao do texto da area produtos-->
-                <a onclick="desliza(3300);">Produtos</a>
+                <a onclick="desliza(3300,6400);">Produtos</a>
                 <!--metodo onclick para chamar a funcao deslina no js, scrollando o usuario ate a area desejada-->
             </div>
             <div id="contato">
                 <!--div com a formatacao e atributo hover para as letras, inicialemente sendo um link, mas o css tira a linha dos links-->
-                <a onclick="desliza(810);">Contato</a>
+                <a onclick="desliza(810,550);">Contato</a>
                 <!--metodo onclick para chamar a funcao desliza para a area desejada-->
             </div>
             <div id="localizacao">
                 <!--div com a formatacao e atributo hover para as letras, inicialmente sendo um link, mas o css tira a linha dos links -->
-                <a onclick="desliza(4000);">Localização</a>
+                <a onclick="desliza(4400,8300);">Localização</a>
                 <!--metodo onclick chamando a funcao desliza para deslizar ate a area desejada-->
             </div>
-            <div id="agendar" onclick="desliza(2400);">
+            <div id="agendar" onclick="desliza(2400,4450);">
                 <!--div com o link para a area agendar, é adicionado uma borda em volta do conteudo dela, e colocado o metodo onclick
                 tambem na div, pois caso a pessoa clicar fora da borda, tb é executada a mesma acao que quando clicar no link-->
-                
-                    <a  id="agd">Agendar</a>
+
+                <a id="agd">Agendar</a>
                 <!--quando clicado no link da frase agendar, é acionado a funcao desliza-->
             </div>
         </div>
-        
-        
+
+
     </div>
 
     <!--div que guarda a imagem do logo da empresa-->
@@ -66,7 +66,7 @@
     <div id="popUpAv">
         <!--div que recebe a avaliacao do usuario sobre o site-->
         <!--botao de fechar o pop up da tela, com o metodo onclick chamando a funcao fechar, passando como paratro o id da div-->
-        <img src="x.png" height="15px" width="15px" id="x" onclick="fechar(popUpAv);">
+        <img src="x.png" height="15px" width="15px" id="x" onclick="fechar(popUpAv, 'surge');">
         <!--div do titulo da secao-->
         <h3 id="tiltAvalia">Como esta sua experiencia no site?</h3>
         <!--div q guarda as estrelas de avaliacao do usuario-->
@@ -92,7 +92,7 @@
     <!--div que guarda a secao de informacoes para contato, tem o display flex com a direcao em linha, e flex wrap, q significa que se for necessario a quebra
     de linha, ele quebra-->
     <div id="informacao">
-       
+
 
         <div id="whats">
             <!--div com o link e as informacoes do whatsapp, com flex direction colum, e td alinhado no centro nos 2 eixos-->
@@ -144,7 +144,7 @@
     <!--div que guarda todo o conteudo da secao de servicos que a barbearia faz-->
     <div id="servico2">
         <!--div que guarda o titulo da secao-->
-        
+
         <div id="ServCabelo">
             <!--div com o link e as informacoes do servico corte de cabelo, com flex direction colum, e td alinhado no centro nos 2 eixos-->
             <!--imagem ilustrativa do corte de cabelo, junto com as informacoes de preco-->
@@ -175,7 +175,7 @@
 
         </div>
     </div>
-   
+
     <!--div com conteudo de agendar um horario, resposanvel por chamar o js para calcular precos e redirecionar para o wpp com o preco total dos servicoes pedidos-->
     <div id="titAgendar">
         <h1><a>Agende um horario</a></h1>
@@ -183,7 +183,7 @@
     <div id="agendHor">
         <!--div que guarda todo o conteudo da secao agendar horario, com display flex, com direcoes em linhas e tudo alinhado no centro nos dois eixos-->
         <!--div com o titulo da secao-->
-        
+
         <!--a div inteira e guardada com um link, pois assim qualquer lugar q for clicado na div consegui aciona a funcao pedida, e n deixa nenhuma borda de botao automaticamente-->
         <a id="agendaCab1" onclick="seleciona(agendCab, 0, env,0);">
             <!--é passado para o js a funcao para chamar quando clicar na div, o parametro do id da div em q ele deve alterar, o numero a qual essa div é represtando no subvetor marcados,
@@ -270,7 +270,7 @@
     </div>
     <!--div com o conteudo da secao dos produtos a venda-->
     <div id="produtosVend">
-        
+
         <!--a div inteira e guardada com um link, pois assim qualquer lugar q for clicado na div consegui aciona a funcao pedida, e n deixa nenhuma borda de botao automaticamente-->
         <a id="compraPom" onclick="seleciona(pomada, 0, env2,1);">
             <!--é passado para o js a funcao para chamar quando clicar na div, o parametro do id da div em q ele deve alterar, o numero a qual essa div é represtando no subvetor marcados,
@@ -333,16 +333,16 @@
             </div>
         </a>
         <!--div que ficara oculta inicialmente, e so aparecera se o js verificar que existe alguma opcao marcada pelo usuario-->
-  
-        
+
+
     </div>
     <div id="env2">
         <!--foi aplicado duas divs, pois a env 2 sera display none, para so aparecer quando o usuario clicar em algo, entao é mais dificil organizar as coisas nela, pelo fato de inicialmente ter display none-->
         <!--ja a div botoes tem display flex com direcao em linha, mas como a div env 2 é pai dela, e tem display none, ela nao aparece, e mesmo assim pode ter display flex-->
         <div id="botoes">
-        <!--os dois botoes de opcoes dos produtos, sendo o primeiro para compra do produto, e o segundo tendo um display none, sendo pra tirar duv, assim q o usuario colocar o mouse em cima da div env2, o segundo
+            <!--os dois botoes de opcoes dos produtos, sendo o primeiro para compra do produto, e o segundo tendo um display none, sendo pra tirar duv, assim q o usuario colocar o mouse em cima da div env2, o segundo
         botao aparece "botaoTiraDuv" -->
-        <!--cada botao chama uma funcao, sendo uma para calcular o preco total dos produtos, e a outra para tirar duv sobre os produtos, e cada um tem sua propria mensagem customizada-->
+            <!--cada botao chama uma funcao, sendo uma para calcular o preco total dos produtos, e a outra para tirar duv sobre os produtos, e cada um tem sua propria mensagem customizada-->
             <button type="submit" id="botaoCalcProd" onclick="calcProds();">Efetuar compra
             <img src="wpp3.png" width="30px" height="30px">
             </button>
@@ -366,7 +366,7 @@
         </i></a>
     </div>
     <div id="localizacao2">
-        
+
         <!--iframe com localizacao do mapa, q aparece inicialmente-->
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d934.5180934884722!2d-45.43604417082088!3d-20.462220399144243!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94b4edc5a7144aa9%3A0x9626f70ac55a1ecc!2sHS%20Barber!5e0!3m2!1spt-BR!2sbr!4v1656431515194!5m2!1spt-BR!2sbr"
             width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" id="mapa">
@@ -402,8 +402,6 @@
 
 
     <script>
-       
-
         let estadoEmail = 0; //estado da caixa de email da secao contatos, se 1 ela esta aparecendo, se 0, esta oculta
 
         function digEmail() {
@@ -660,10 +658,10 @@
 
         }
 
-        
-        function autorizacao(i2,a2,q, w, r, PouM) {
+
+        function autorizacao(i2, a2, q, w, r, PouM) {
             //funcao responsavel por quando o usuario clicar no botao da animacao, mudar o valor da valor q autoriza o programa a animar as divs de localizacao para 1
-            if(aut == 0){
+            if (aut == 0) {
                 i = parseInt(i2);
                 a = parseInt(a2);
                 pararDiv = parseInt(q);
@@ -699,7 +697,7 @@
         //funcao responsavel por aparecer o pop up de avaliacao do site
         function aparecePopUp() {
             //quando chamada, aplica um display flex na div do pop up
-            document.getElementById("popUpAv").style.display = "flex";
+            document.getElementById("popUpAv").classList.toggle('surge');
         }
         //depois de 5 segundos q o site abriu, faz o pop up aparecer
         setTimeout(aparecePopUp, 5000);
@@ -718,9 +716,9 @@
             return true;
         }
 
-        function fechar(id) {
+        function fechar(id, classe) {
             //funcao responsavel por fechar um pop up na tela quando clicado pelo usuario, recebendo o id do elemento
-            id.style.display = "none"; //aplica um display none ao elemento
+            id.classList.toggle(classe);
         }
         let mensagemSugestao = 0; //var que controla o enter para chamar a funcao envia sugestao para ela disparar somente quando a 
         //a mensagem pedindo sugestao de melhoras aparecer no pop up av
@@ -738,7 +736,7 @@
             //se a avalicao foi maior ou igual a 4, entao
             if (numero >= 4) {
                 //depois de 3 segundos, fechar a div popupav 
-                setTimeout(fechar, 3000, popUpAv);
+                setTimeout(fechar, 3000, popUpAv, 'surge');
             } else { //se falso, apareça com a caixa de texto q o id foi passado como 3 argumento
                 id3.style.display = "block";
                 //e mude o valor de mensagem sugestao para 1, para a partir de agora a funcao enviaSugest aceitar o enter para enviar a sugestao digitada
@@ -759,25 +757,41 @@
                 //mostra a mensagem no tiltAvalia
                 a.innerHTML = "Muito obrigado pela sugestao, iremos fazer o possivel para melhorar!"
                     //depois de 3 segundos, fecha a div
-                setTimeout(fechar, 3000, popUpAv);
+                setTimeout(fechar, 3000, popUpAv, 'surge');
             }
         }
         const MenuMobile = document.getElementById("menuBase");
+        const nav = document.getElementById("nav");
 
-        function abreMenu(){
-            const nav = document.getElementById("nav");
+        function abreNav() {
             nav.classList.toggle('aparece');
+        }
+
+        function abreMenu(evento) {
+            console.log(evento);
+            if (evento == "nao") {
+
+                nav.classList.toggle('aparece');
+                MenuMobile.classList.toggle('animaBotaoCell');
+            } else {
+                MenuMobile.classList.toggle('animaBotaoCell');
+                setTimeout(abreNav, 500);
+            }
         }
 
         MenuMobile.addEventListener('click', abreMenu);
         //funcao responsavel por deslizar o usuario pra qualquer parte do codigo, recebendo o y que é o eixo vertical de ate
         //onde deve scrollar o usuario
-        function desliza(y) {
-            
-            y = parseInt(y); //transforma o y passado como parametro para inteiro
+        function desliza(y, z) {
+            let ate;
+            if (window.innerWidth <= 600) {
+                ate = parseInt(z);
+            } else {
+                ate = parseInt(y);
+            }
             //usa o metodo scrool para levar o usuario ate a  parte passada como parametro
-            window.scrollTo(0, y);
-            abreMenu();
+            window.scrollTo(0, ate);
+            abreMenu("nao");
         }
         //ao clicar de qualquer tecla, o evento document.onkeydown chamada a funcao envia sugest, passando como parametro o evento q a chamou, ou seja, todos os eventos relacionados ao clicar de uma tecla
         document.onkeydown = enviaSugest;

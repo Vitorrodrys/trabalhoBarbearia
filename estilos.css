@@ -24,47 +24,46 @@
                     /*tamanho vertical*/
                     height: 100px;
                 }
-                #nav{
+                
+                #nav {
                     display: flex;
                     flex-direction: row;
                     justify-content: space-around;
                     align-items: center;
                     width: 100%;
                 }
-                #menuCell{
+                
+                #menuCell {
                     display: none;
                     flex-direction: column;
-                    
-                    
-
                 }
-                #menuBase{
+                
+                #menuBase {
                     display: flex;
                     flex-direction: column;
                     justify-content: center;
                     align-items: center;
-                    padding: 12px;
-                    
-                    
-                    
+                    padding: 15px;
+                    padding-bottom: 23px;
+                    transition: 1.0s;
+                    overflow-y: hidden;
                     border-style: groove;
                     /*estilo da borda da div sera grovee*/
                     border-color: gray;
                     /*cor da borda sera cinza*/
                     border-radius: 9px white;
-
                 }
-                #menuBase::before{
+                
+                #menuBase::before {
                     content: "";
                     width: 20px;
                     height: 2px;
                     background-color: white;
                     transform: translateY(-2px);
                     box-shadow: 0 20px 0 white;
-                    
-                    
                 }
-                #menuBase::after{
+                
+                #menuBase::after {
                     content: "";
                     width: 20px;
                     height: 2px;
@@ -186,7 +185,6 @@ e o ponteiro do mouse para pointer*/
                     align-items: flex-start;
                     justify-content: center;
                     min-height: 900px;
-                    
                 }
                 
                 #whats,
@@ -341,21 +339,16 @@ e o ponteiro do mouse para pointer*/
                     /*se necessario, quebraram o fluxo para a proxima linha*/
                     justify-content: space-around;
                     /*define que todos os elementos teram um espacamento igual um do outro*/
-                    align-items:  center;
+                    align-items: center;
                     /*define que todos os elementos ficaram alinhados no centro no eixo vertical*/
-                    background-color: #DCDCDC; 
+                    background-color: #DCDCDC;
                     height: 800px;
-                    /*tentar padronizar o tamanho das divs pra ajudar a responsividade******************************************************************************************************************************************************************************************************************************************************************************************/
                 }
-                
-                
                 
                 #localizacao2 {
                     /*toda div que possuir essa tag, recebera esse fundo*/
                     background-color: white;
                 }
-                
-               
                 
                 #enviar {
                     /*toda div q0ue possuir o id enviar recebe*/
@@ -408,7 +401,6 @@ e o ponteiro do mouse para pointer*/
                     border-radius: 10px;
                     /*e esse arrendodamento nas bordas*/
                 }
-
                 
                 #fotosServs {
                     min-height: 120px;
@@ -450,7 +442,9 @@ e o ponteiro do mouse para pointer*/
                     height: 30px;
                     /* width: 100%; */
                 }
-                #titProdutosVend, #informaServ{
+                
+                #titProdutosVend,
+                #informaServ {
                     background-color: #DCDCDC;
                 }
                 
@@ -480,7 +474,6 @@ e o ponteiro do mouse para pointer*/
                 #agendHor {
                     /*div agenda horario recebe esses atribuos*/
                     background-color: white;
-                    
                 }
                 
                 #agendaCab1:hover #teste {
@@ -572,7 +565,7 @@ e o ponteiro do mouse para pointer*/
                     /*a div com id env recebe*/
                     display: none;
                     /*display none para naoaparecer*/
-                   justify-content: center;
+                    justify-content: center;
                 }
                 
                 #botaoCalc,
@@ -614,10 +607,9 @@ e o ponteiro do mouse para pointer*/
                     display: none;
                     /*botao envia 2 nao aparece inicialmente*/
                     background-color: #DCDCDC;
-                    justify-content: center; 
+                    justify-content: center;
                     width: 100%;
                     /*afastamento da esqueda de 600px*/
-                 
                 }
                 
                 #botoes {
@@ -715,9 +707,8 @@ e o ponteiro do mouse para pointer*/
                     border-radius: 10px;
                 }
                 
-            
-                
-                #botaoloca, #botaoLocaMobile {
+                #botaoloca,
+                #botaoLocaMobile {
                     display: flex;
                     flex-direction: column;
                     align-items: center;
@@ -730,7 +721,8 @@ e o ponteiro do mouse para pointer*/
                     color: beige;
                     border-radius: 20px;
                 }
-                #botaoLocaMobile{
+                
+                #botaoLocaMobile {
                     display: none;
                 }
                 
@@ -762,7 +754,7 @@ e o ponteiro do mouse para pointer*/
                     flex-direction: row;
                     flex-wrap: nowrap;
                     justify-content: space-around;
-                    background-color:black;
+                    background-color: black;
                     opacity: 0.7;
                     margin-left: -10px;
                     margin-bottom: -10px;
@@ -770,24 +762,31 @@ e o ponteiro do mouse para pointer*/
                     color: rgb(167, 185, 204);
                 }
                 
-               
-                
                 #fotoAnim {
                     margin-top: -700px;
                 }
                 
                 #popUpAv {
-                    display: none;
+                    display: flex;
                     flex-direction: column;
+                    visibility: hidden;
                     position: fixed;
                     top: 300px;
                     left: 300px;
-                    width: 300px;
-                    height: 120px;
+                    width: 0px;
+                    height: 0px;
                     background-color: rgb(12, 86, 110);
                     padding: 10px;
                     border-radius: 30px;
                     border: rgb(12, 86, 110) solid 1px;
+                    transition: 1.0s;
+                    overflow: hidden;
+                }
+                
+                #popUpAv.surge {
+                    visibility: visible;
+                    height: 120px;
+                    width: 300px;
                 }
                 
                 #avaliacoes {
@@ -816,34 +815,40 @@ e o ponteiro do mouse para pointer*/
                     display: none;
                 }
                 
-                
                 @media (max-width:600px) {
-                    #agendar{
+                    #agendar {
                         border: none;
                         font-size: 25px;
-
                     }
-                    #texto{
+                    #texto {
                         display: none;
                     }
-                    #tabela{
+                    #tabela {
                         flex-direction: column;
                         justify-content: space-between;
+                        width: 600px;
                     }
                     #nav {
-                        display: none;
-                    }
-                    #nav.aparece{
-                        top:-5px;
-                        position: fixed;
-                        background-color: black;
-                        opacity:1.0;
                         display: flex;
                         flex-direction: column;
-                        height: 100%;
+                        opacity: 1.0;
+                        position: fixed;
+                        height: 0px;
+                        transition: 1.2s;
+                        visibility: hidden;
+                        overflow-y: hidden;
                     }
-                   
-                    #menuCell{
+                    #menuBase.animaBotaoCell {
+                        align-items: flex-start;
+                        padding: 0;
+                    }
+                    #nav.aparece {
+                        top: -5px;
+                        visibility: visible;
+                        background-color: black;
+                        height: calc(100% + 5px);
+                    }
+                    #menuCell {
                         margin-top: 28px;
                         margin-bottom: 28px;
                         display: flex;
@@ -859,17 +864,13 @@ e o ponteiro do mouse para pointer*/
                         justify-content: space-around;
                         height: 1800px;
                     }
-                    
                     #fotoAnim {
                         width: 300px;
                         height: 300px;
                     }
-                    
-                   #informaCont{
+                    #informaCont {
                         margin-top: -400px;
-                   }
-                    
-                  
+                    }
                     #agendaCab1:hover #teste {
                         /*toda vez q o mouse passar por cima da div agendaCab1
                         a div teste recebe essa borda*/
@@ -942,31 +943,29 @@ e o ponteiro do mouse para pointer*/
                     #env {
                         margin-left: 10px;
                     }
-                    #botaoloca{
+                    #botaoloca {
                         display: none;
                     }
-                    #botaoLocaMobile{
+                    #botaoLocaMobile {
                         display: flex;
                     }
                     #mapa {
                         margin: 75px 0 0 -50px;
                     }
-                    #localizacao2{
+                    #localizacao2 {
                         height: 900px;
                     }
-                    #botaoTiraDuv{
+                    #botaoTiraDuv {
                         display: flex;
                         border: 3px solid darkcyan;
                     }
-                    #copy{
-                      flex-direction: column;
-                      justify-content: flex-start;
-                      align-items: center;
-                      padding: 0px;
-                      
+                    #copy {
+                        flex-direction: column;
+                        justify-content: flex-start;
+                        align-items: center;
+                        padding: 0px;
                     }
-                    #someCopy{
+                    #someCopy {
                         display: none;
                     }
-                    
                 }
