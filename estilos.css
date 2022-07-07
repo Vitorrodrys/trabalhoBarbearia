@@ -22,6 +22,55 @@
                     /*tamanho horizontal da div*/
                     height: 100px;
                     /*tamanho vertical*/
+                    height: 100px;
+                }
+                #nav{
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-around;
+                    align-items: center;
+                    width: 100%;
+                }
+                #menuCell{
+                    display: none;
+                    flex-direction: column;
+                    
+                    
+
+                }
+                #menuBase{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    padding: 12px;
+                    
+                    
+                    
+                    border-style: groove;
+                    /*estilo da borda da div sera grovee*/
+                    border-color: gray;
+                    /*cor da borda sera cinza*/
+                    border-radius: 9px white;
+
+                }
+                #menuBase::before{
+                    content: "";
+                    width: 20px;
+                    height: 2px;
+                    background-color: white;
+                    transform: translateY(-2px);
+                    box-shadow: 0 20px 0 white;
+                    
+                    
+                }
+                #menuBase::after{
+                    content: "";
+                    width: 20px;
+                    height: 2px;
+                    background-color: white;
+                    margin-top: 5px;
+                    transform: translateY(2px);
                 }
                 
                 #texto,
@@ -721,10 +770,7 @@ e o ponteiro do mouse para pointer*/
                     color: rgb(167, 185, 204);
                 }
                 
-                body {
-                    
-                    /* overflow-x: hidden; */
-                }
+               
                 
                 #fotoAnim {
                     margin-top: -700px;
@@ -772,10 +818,35 @@ e o ponteiro do mouse para pointer*/
                 
                 
                 @media (max-width:600px) {
-                  
-                   
-                    #tabela {
+                    #agendar{
+                        border: none;
+                        font-size: 25px;
+
+                    }
+                    #texto{
                         display: none;
+                    }
+                    #tabela{
+                        flex-direction: column;
+                        justify-content: space-between;
+                    }
+                    #nav {
+                        display: none;
+                    }
+                    #nav.aparece{
+                        top:-5px;
+                        position: fixed;
+                        background-color: black;
+                        opacity:1.0;
+                        display: flex;
+                        flex-direction: column;
+                        height: 100%;
+                    }
+                   
+                    #menuCell{
+                        margin-top: 28px;
+                        margin-bottom: 28px;
+                        display: flex;
                     }
                     #informacao,
                     #servico2,
@@ -801,7 +872,7 @@ e o ponteiro do mouse para pointer*/
                   
                     #agendaCab1:hover #teste {
                         /*toda vez q o mouse passar por cima da div agendaCab1
-        a div teste recebe essa borda*/
+                        a div teste recebe essa borda*/
                         border: 5px solid white;
                     }
                     #agendaCab1:hover #agendCab {

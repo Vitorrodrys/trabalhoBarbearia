@@ -12,43 +12,50 @@
 <body id="pagina">
 
     <!--inicio do site, div com posicao fixa, que serve como menu de interecao para levar para qualquer area do site-->
-    <div id="tabelaMobilie">
-        <div id=""
-    </div>
+    
     <div id="tabela">
         <!--logotipo da barra de interacao-->
-        <div id="texto">
-            <img src="logoBarrNav.png" width="130px" height="90px">
+        
+        <div id="menuCell">
+            
+            <a id="menuBase"></a>
         </div>
-        <!--atalho para scrollar o usuario ate a area de servicos-->
-        <div id="servicos">
-            <!--div para pegar a formacao e o atributo hover para as letras, inicialmente é um link, mas o css tira a formatacao de linha dos links dessa parte-->
-            <a onclick="desliza(1700);">Serviços</a>
-            <!--metodo onclick para chamar a funcao desliza no js, scrollando a pagina ate a area desejada-->
+        <div id="nav">
+            <div id="texto">
+                <img src="logoBarrNav.png" width="130px" height="90px">
+            </div>
+            <!--atalho para scrollar o usuario ate a area de servicos-->
+            <div id="servicos">
+                <!--div para pegar a formacao e o atributo hover para as letras, inicialmente é um link, mas o css tira a formatacao de linha dos links dessa parte-->
+                <a onclick="desliza(1700);">Serviços</a>
+                <!--metodo onclick para chamar a funcao desliza no js, scrollando a pagina ate a area desejada-->
+            </div>
+            <!--atalho para scrollar o usuario ate a area de produtos-->
+            <div id="produtos">
+                <!--div para pegar a formatacao do texto da area produtos-->
+                <a onclick="desliza(3300);">Produtos</a>
+                <!--metodo onclick para chamar a funcao deslina no js, scrollando o usuario ate a area desejada-->
+            </div>
+            <div id="contato">
+                <!--div com a formatacao e atributo hover para as letras, inicialemente sendo um link, mas o css tira a linha dos links-->
+                <a onclick="desliza(810);">Contato</a>
+                <!--metodo onclick para chamar a funcao desliza para a area desejada-->
+            </div>
+            <div id="localizacao">
+                <!--div com a formatacao e atributo hover para as letras, inicialmente sendo um link, mas o css tira a linha dos links -->
+                <a onclick="desliza(4000);">Localização</a>
+                <!--metodo onclick chamando a funcao desliza para deslizar ate a area desejada-->
+            </div>
+            <div id="agendar" onclick="desliza(2400);">
+                <!--div com o link para a area agendar, é adicionado uma borda em volta do conteudo dela, e colocado o metodo onclick
+                tambem na div, pois caso a pessoa clicar fora da borda, tb é executada a mesma acao que quando clicar no link-->
+                
+                    <a  id="agd">Agendar</a>
+                <!--quando clicado no link da frase agendar, é acionado a funcao desliza-->
+            </div>
         </div>
-        <!--atalho para scrollar o usuario ate a area de produtos-->
-        <div id="produtos">
-            <!--div para pegar a formatacao do texto da area produtos-->
-            <a onclick="desliza(3300);">Produtos</a>
-            <!--metodo onclick para chamar a funcao deslina no js, scrollando o usuario ate a area desejada-->
-        </div>
-        <div id="contato">
-            <!--div com a formatacao e atributo hover para as letras, inicialemente sendo um link, mas o css tira a linha dos links-->
-            <a onclick="desliza(810);">Contato</a>
-            <!--metodo onclick para chamar a funcao desliza para a area desejada-->
-        </div>
-        <div id="localizacao">
-            <!--div com a formatacao e atributo hover para as letras, inicialmente sendo um link, mas o css tira a linha dos links -->
-            <a onclick="desliza(4000);">Localização</a>
-            <!--metodo onclick chamando a funcao desliza para deslizar ate a area desejada-->
-        </div>
-        <div id="agendar" onclick="desliza(2400);">
-            <!--div com o link para a area agendar, é adicionado uma borda em volta do conteudo dela, e colocado o metodo onclick
-            tambem na div, pois caso a pessoa clicar fora da borda, tb é executada a mesma acao que quando clicar no link-->
-            <p>
-                <a onclick="desliza(2400);" id="agd">Agendar</a></p>
-            <!--quando clicado no link da frase agendar, é acionado a funcao desliza-->
-        </div>
+        
+        
     </div>
 
     <!--div que guarda a imagem do logo da empresa-->
@@ -395,13 +402,7 @@
 
 
     <script>
-        //funcao responsavel por deslizar o usuario pra qualquer parte do codigo, recebendo o y que é o eixo vertical de ate
-        //onde deve scrollar o usuario
-        function desliza(y) {
-            y = parseInt(y); //transforma o y passado como parametro para inteiro
-            //usa o metodo scrool para levar o usuario ate a  parte passada como parametro
-            window.scrollTo(0, y);
-        }
+       
 
         let estadoEmail = 0; //estado da caixa de email da secao contatos, se 1 ela esta aparecendo, se 0, esta oculta
 
@@ -760,6 +761,23 @@
                     //depois de 3 segundos, fecha a div
                 setTimeout(fechar, 3000, popUpAv);
             }
+        }
+        const MenuMobile = document.getElementById("menuBase");
+
+        function abreMenu(){
+            const nav = document.getElementById("nav");
+            nav.classList.toggle('aparece');
+        }
+
+        MenuMobile.addEventListener('click', abreMenu);
+        //funcao responsavel por deslizar o usuario pra qualquer parte do codigo, recebendo o y que é o eixo vertical de ate
+        //onde deve scrollar o usuario
+        function desliza(y) {
+            
+            y = parseInt(y); //transforma o y passado como parametro para inteiro
+            //usa o metodo scrool para levar o usuario ate a  parte passada como parametro
+            window.scrollTo(0, y);
+            abreMenu();
         }
         //ao clicar de qualquer tecla, o evento document.onkeydown chamada a funcao envia sugest, passando como parametro o evento q a chamou, ou seja, todos os eventos relacionados ao clicar de uma tecla
         document.onkeydown = enviaSugest;
