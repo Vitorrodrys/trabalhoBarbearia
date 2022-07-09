@@ -25,15 +25,17 @@
                     height: 100px;
                 }
                 
-                #nav {
+                #nav {/*elementos da barra de navegação quando o site é aberto em um aparelho com resolucao maior que 600px aparecem dentro dessa sub
+                    div, com esses atributos*/
                     display: flex;
-                    flex-direction: row;
-                    justify-content: space-around;
-                    align-items: center;
+                    flex-direction: row;/*faz os elementos aparecerem em linha*/
+                    justify-content: space-around;/*faz os elementos terem espaçamento na linha de forma igual*/
+                    align-items: center;/*faz os elementos se posicionarem no centro verticalmente*/
                     width: 100%;
                 }
                 
-                #menuCell {
+                #menuCell {/*menu cell inicialmente nao aparece, somente aparece se o media query detectar 
+                    que o aparelho que esta rodando tem resolucao menor que 600px*/
                     display: none;
                     flex-direction: column;
                 }
@@ -45,8 +47,8 @@
                     align-items: center;
                     padding: 15px;
                     padding-bottom: 23px;
-                    transition: 1.0s;
-                    overflow-y: hidden;
+                    transition: 1.0s;/*qualquer alteração de elementos feita na div menuBase sera em animacao, e demorara 1 seg para ser feito*/
+                    overflow-y: hidden;/*as animacoes esconderam a alteracao original dos elementos, por exemplo, enquanto a animacao é feita, nao sera mostrado os a reacao original dos elementos tentando se adaptar ao tamanho*/
                     border-style: groove;
                     /*estilo da borda da div sera grovee*/
                     border-color: gray;
@@ -54,17 +56,17 @@
                     border-radius: 9px white;
                 }
                 
-                #menuBase::before {
-                    content: "";
-                    width: 20px;
-                    height: 2px;
-                    background-color: white;
-                    transform: translateY(-2px);
-                    box-shadow: 0 20px 0 white;
+                #menuBase::before {/*antes de menu base, tera um elemento customizado com esses atributos*/
+                    content: "";/*recebera um elemento vazio*/
+                    width: 20px;/*aumenta a largura deste elemento que sera colocado*/
+                    height: 2px;/*aumenta a altura deste elemento*/
+                    background-color: white;/*defina sua cor como branco*/
+                    transform: translateY(-2px);/*define que sua posicao original sera alterada em -2px*/
+                    box-shadow: 0 20px 0 white;/*coloca outro elemento igual ele a cima dele, atravez de sua sombra*/
                 }
                 
                 #menuBase::after {
-                    content: "";
+                    content: "";/*depois de menu base tera um elemento com esses atributos, igualmente explicado antes*/
                     width: 20px;
                     height: 2px;
                     background-color: white;
@@ -310,9 +312,9 @@ e o ponteiro do mouse para pointer*/
                     border-radius: 10px;
                     /*recebe um arredondamento das bordas de 10px*/
                     border: #DCDCDC solid 2px;
-                    height: 0;
+                    height: 230px;
                     /*recebe uma altura de 220 px*/
-                    width: 0;
+                    width: 0;/*animacao do email em resolucao maiores que 600px sera so na largura*/
                     /*recebe uma largura de 350px*/
                     font-size: 20px;
                     /*tamanho da fonte das letras dentro da div*/
@@ -321,12 +323,13 @@ e o ponteiro do mouse para pointer*/
                     color: black;
                     transition: 1.6s;
                     overflow: hidden;
+                    
                     /*cor das letras da div*/
                 }
                 
                 #digEmail.animaEmail {
                     visibility: visible;
-                    height: 230px;
+                   /*aumenta a largura durante a animacao do elemento digEmail*/
                     width: 350px;
                 }
                 
@@ -828,40 +831,41 @@ e o ponteiro do mouse para pointer*/
                 
                 #sugestaoDeMelhora {
                     display: none;
+                    border: solid black;
+                    border-radius: 7px;
                 }
                 
-                @media (max-width:600px) {
-                    #agendar {
+                @media (max-width:600px) {/*configracao de responsividade feita para aparelhos menor que 600px de largura*/
+                    
+                    #agendar {/*tira a borda da div agendar da barra de navegaçao*/
                         border: none;
-                        font-size: 25px;
+                        font-size: 25px;/*tb aumenta seu tamanho*/
                     }
-                    #texto {
-                        display: none;
-                    }
-                    #tabela {
+                    
+                    #tabela {/*faz a barra de navegacao ser visualizada em coluans*/
                         flex-direction: column;
                         justify-content: space-between;
-                        width: 600px;
+                        width: 100%;
                     }
                     #nav {
                         display: flex;
-                        flex-direction: column;
+                        flex-direction: column;/*faz os elementos de links da barra de nav serem visualizados em colunas*/
                         opacity: 1.0;
                         position: fixed;
-                        height: 0px;
-                        transition: 1.2s;
-                        visibility: hidden;
-                        overflow-y: hidden;
+                        height: 0px;/*inicialmente, antes da anicao da barra começar, tera altura de 0 px*/
+                        transition: 1.2s;/*a animacao demorara 1.2 seg*/
+                        visibility: hidden;/*antes da animacao começar, n sera visivel*/
+                        overflow-y: hidden;/*faz com que os elementos nao reagem aleatoriamente a mudanca de tamanho durante a animcao*/
                     }
-                    #menuBase.animaBotaoCell {
-                        align-items: flex-start;
-                        padding: 0;
+                    #menuBase.animaBotaoCell {/*quando menu base tiver a class animaBotaoCell, seus elementos serao trocados para esses*/
+                        align-items: flex-start;/*faz os elementos do botao do cell subirem*/
+                        padding: 0;/*faz o botao diminuir de tamanho, dando impressao que esta sumindo lentamente apos o clique*/
                     }
-                    #nav.aparece {
-                        top: -5px;
-                        visibility: visible;
-                        background-color: black;
-                        height: calc(100% + 5px);
+                    #nav.aparece {/*quando a barra de navegacao tiver a class aparece, seus atributos serao alterrados para esses*/
+                        top: -5px;/*tera uma distancia da mergem do tpo de -5px*/
+                        visibility: visible;/*se tornara visivel*/
+                        background-color: black;/*tera a cor de fundo preta*/
+                        height: calc(100% + 5px);/*tera uma altura de 100% do tamanho disponivel mais 5px*/
                     }
                     #menuCell {
                         margin-top: 28px;
@@ -991,5 +995,14 @@ e o ponteiro do mouse para pointer*/
                         width: 100%;
                         height: 400px;
                         border: none;
+                    }
+                    #digEmail{
+                        height: 0px;
+                    }
+                    #digEmail.animaEmail {
+                        /*noc cell a animacao do email é alterada, no cell ele anima pra baixo e pra cima ao mesmo tempo*/
+                        visibility: visible;
+                        height: 230px;
+                        width: 350px;
                     }
                 }

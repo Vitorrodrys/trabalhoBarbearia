@@ -110,7 +110,7 @@
         </div>
 
 
-        <button id="email2" onclick="diigEmail(digEmail, nameEmail);">
+        <button id="email2" onclick="diigEmail(digEmail, nameEmail, emailEmail, message, mensagem);">
             <!--botao com id do email2 para edicao, é tirado suas bordas para nao parecer mais um botao-->
             <!--imagem ilustrativa de um email-->               
             <img src="email.png" width="250px" height="250px">
@@ -178,7 +178,7 @@
 
     <!--div com conteudo de agendar um horario, resposanvel por chamar o js para calcular precos e redirecionar para o wpp com o preco total dos servicoes pedidos-->
     <div id="titAgendar">
-        <h1><a>Agende um horario</a></h1>
+        <h1><a>Agende um horário</a></h1>
     </div>
     <div id="agendHor">
         <!--div que guarda todo o conteudo da secao agendar horario, com display flex, com direcoes em linhas e tudo alinhado no centro nos dois eixos-->
@@ -374,7 +374,7 @@
         <!--div da fachada da loja, q incialmente tem display none-->
         <div id="fachadaLoja">
             <!--guarda as imagens da fachada, e informacoes de endereco-->
-            <img src="fachada.png" width="450" height="300" id="imgFacha">
+            <img src="fachada.png" id="imgFacha">
             <div id="informacoesFachada">
                 <i><h3>Formiga-MG</h3></i>
                 <i>Endereço: Praça Florêncio Rodrigues Nunes sobrinho</i>
@@ -402,15 +402,24 @@
 
 
     <script>
-        function diigEmail(id, id2, id3, id4, id5, id6) {
-            console.log(id);
-            id.classList.toggle('animaEmail');
-            id2.focus();
+        function focar(id) {
+            //funcao responsavel por focar a digitacao de texto do usuario em um elemento passado como id
+            id.focus();
+        }
 
+        function diigEmail(id, id2, id3, id4, id5, id6) {
+            //funcao responsavel por fazer a div de email aparecer quando o usuario clicar no icone do email na secao contatos
+            //adiciona ao primeiro id passado, que sera o id da div que deve aparecer para o usuario digitar seu email, a class animaEmail
+            id.classList.toggle('animaEmail');
+
+            //limpa os 3 campos de textos passados como id2, id3 e id 4
+            id2.value = "";
             id3.value = "";
             id4.value = "";
-            id5.value = "";
-            id6.innerHTML = "";
+            id5.innerHTML = "";
+            //depois que terminar a animacao, chama a funcao responsavel por dar um foco, ou seja, abrir o campo de texto do primeiro elemento da div do email, passada como parametro seu id
+            setTimeout(focar, 2000, id2);
+
         }
 
 
@@ -498,6 +507,7 @@
             //vetor q guarda as mensagem para cada pedido
             const pedidos = [" quero cortar o cabelo de R$ 15,00", " quero fazer a barba R$ 10,00", " quero fazer a sobrancelha R$ 20,00", " quero fazer a sobrancelha na navalha R$ 10,00"];
             for (let i = 0; i < 4; i++) {
+                //ciclo for responsavel por verificar quais serviços foram marcados pelo usuario, o vetor de serviços na matriz marcados é o indice 0
                 //se a opcao esta marcada, entao 
                 if (marcados[0][i] == 1) {
                     soma += precos[i]; //somar o preco dela na posicao do vetor de precos a soma
@@ -528,26 +538,35 @@
 
         function calcProds() {
             //funcao responsavel por calcular o preco dos produtos, o comportamento é igual a de cima, so muda as mensagens e os precos
-            let soma = 0;
-            let precos = [21, 17, 50, 45];
-            let indices = [];
-            let nome = window.prompt("digite seu nome:");
-            let mensagem = "Ola, meu nome é " + nome + " ";
+            let soma = 0;//valor da soma dos produtos
+            let precos = [21, 17, 50, 45];//vaor com a soma de cada produto, na mesma posição em que eles aparecem para o usuario no site
+            let indices = [];//vetor que guarda os indices dos produtos escolhidos pelo usuario
+            let nome = window.prompt("digite seu nome:");//prompt que pede o nome do usuario para contatenar com a mensagem
+            let mensagem = "Ola, meu nome é " + nome + " "; // contatena o nome do usuario com o inicio da mensagem
             const pedidos = ["quero comprar uma pomada de R$ 21,00", "quero comprar um gel de R$ 17,00", "quero comprar um minoxidil de R$50,00", "quero comprar um pós Barba de R$ 45,00"];
+            //variavel constante com os textos relativos a cada pedido possivel do usuario, tambem ordenados na mesma posição em que são renderizados para o usuario
             for (let i = 0; i < marcados[1].length; i++) {
+                //ciclo de repeticao responsavel por verificar quais produtos foram marcados na matriz marcados, o indice dos produtos na matriz marcados
+                // é o 1
+                //se a posicao 1, i for 1, entao ela esta marcada, e o usuario a escolheu
                 if (marcados[1][i] == 1) {
-                    soma += precos[i];
-                    indices.push(i);
+                    soma += precos[i];//entao incrementar o valor da soma do preco dos produtos com o preco atual
+                    indices.push(i);//puchar o indice para dentro do vetor de indices
                 }
             }
+            //ciclo de repeticao responsavel por customizar a mensagem para o usuario
             for (let i = 0; i < indices.length; i++) {
-                mensagem += pedidos[indices[i]];
+                //enquanto i nao chegou ao ultimo indice do vetor dos indices selecionados, que foi encontrado pelo ciclo for anterior, continuar percorrendo
+                mensagem += pedidos[indices[i]];//pega o valor do indice atual do vetor dos indices, usa esse valor como um indice para a constante pedidos, e o valor deste indice
+                //de pedidos é contatenado com a mensagem que esta sendo feita
                 if (i + 1 == indices.length) {
+                    //se chegou ao fim da mensagem customizada "i+1 ser igual a quantidade de indices" entao concatene a mensagem, a frase abaixo
                     mensagem += ", totalizando um valor de R$ " + soma + ",00";
-                } else {
+                } else {//caso falso, concatene somente uma virgula
                     mensagem += ",";
                 }
             }
+            //usado o metodo location para redirecionar o usuario para o whatsapp, enviando a mensagem para o dono da barbearia
             window.location.href = "https://api.whatsapp.com/send/?phone=553799840117&text=" + mensagem + "&app_absent=0";
 
         }
@@ -592,12 +611,13 @@
         let i = 450;
         //a representa os valores da div que entrada na animacao, ou seja, se estava a imagem do google maps, e vai entrar a div da fachada da loja, essa div seguira os valores de a na animacao
         let a = 1300;
+        //valores em que deve parar a animacao de cada div
         let pararDiv = -820;
         let pararDiv2 = 1300;
         let pararDiv3 = 450;
         //var que representa a autorizacao para fazer a animacao
         let aut = 0;
-        let pcOuM = 0;
+        let pcOuM = 0; //var que representa se a animacao esta sendo feita no pc ou no mobile
 
         //funcao responsavel por fazer a animacao
         function muda() {
@@ -640,16 +660,21 @@
 
 
         function autorizacao(i2, a2, q, w, r, PouM) {
-            //funcao responsavel por quando o usuario clicar no botao da animacao, mudar o valor da valor q autoriza o programa a animar as divs de localizacao para 1
+            //funcao responsavel por quando o usuario clicar no botao da animacao, mudar o valor da variavel q autoriza o programa a animar as divs de localizacao para 1
+            //se a autorizacao for igual a 0, entao executa o codigo do botao, se nao for, entao nao execute, para evitar do usuario flodar o botao de animacao
             if (aut == 0) {
+                // i recebe a conversao para inteiro do primeiro parametro, que altera de onde a animacao deve começar, se foi clicado em um aparelho com resolucao maior que 600, entao i recebe um numero, se nao foi, recebe outro numero, pois os botoes
+                //que aparecem em cada resolucao sao diferente, portando possuem funcoes diferentes em seus metodos onclicks
                 i = parseInt(i2);
+                //mesma ideia para a
                 a = parseInt(a2);
+                //mesma ideia para todas as parar div
                 pararDiv = parseInt(q);
                 pararDiv2 = parseInt(w);
                 pararDiv3 = parseInt(r);
             }
-            aut = 1;
-            pcOuM = parseInt(PouM);
+            aut = 1; //muda o numero da autorizacao para 1
+            pcOuM = parseInt(PouM); //converte o numero passado como parametro de pc ou mobile para inteiro, e guarda em sua variavel
         }
         setInterval(muda, 1); ////funcao responsavel por animar as divs de localizacao e chamda de 1 em 1 milisegundo
         //pucha o elemento da foto da logo da pagina, para fazer a animacao
@@ -740,39 +765,49 @@
                 setTimeout(fechar, 3000, popUpAv, 'surge');
             }
         }
-        const MenuMobile = document.getElementById("menuBase");
-        const nav = document.getElementById("nav");
+        const MenuMobile = document.getElementById("menuBase"); //guarda o elemento do html que guarda o menu de aparelhos com resolucao menor que 600
+        const nav = document.getElementById("nav"); //guarda todos os elementos da tabela, tirando o menu base para dentro de uma variavel
 
 
         function abreNav() {
+            //adiciona se nao houver, ou remove, se houver, a classe aparece do elemento
             nav.classList.toggle('aparece');
         }
 
         function abreMenu(evento) {
-            console.log(evento);
+            //funcao responsavel por controlar em quantos segundos adicionara a classe aparece em nav, se ela for chamada pelo elemento menuMobile
+            //vira com uma serie de propriedades passadas como parametro, e nao com o texto "nao", entao ser executado o else do if, caso seja chamada pela funcao desliza, apos o usuario
+            //clicar no mobile na secao desejada,  tera como parametro o texto nao, e executara o primeiro corpo do if
             if (evento == "nao") {
-
+                //adiciona a classa aparece ao elemento nav
                 nav.classList.toggle('aparece');
+                //adiciona a classe anima botao cell ao elemento menu mobile
                 MenuMobile.classList.toggle('animaBotaoCell');
             } else {
+                //adiciona a classe anima botao cell ao elemento menu mobile
                 MenuMobile.classList.toggle('animaBotaoCell');
+                //depois de 500 milisegundos, executa a funcao abrenav,
                 setTimeout(abreNav, 500);
             }
         }
 
-        MenuMobile.addEventListener('click', abreMenu);
+        MenuMobile.addEventListener('click', abreMenu); //observa em todo momento da execucao do site se o elemento guardado na variavel menuMobile ouve evento de clique, caso ouve,
+        // chama a funcao abre menu, somente para quando o site e aberto em uma resolucao menor que 600, pois o elemento menuBase guardado na var menuMobile, tem display none sempre que aberto em uma resolucao maior que 600
+        // foi feito para tentar atender a responsividade no celular
+
 
         //funcao responsavel por deslizar o usuario pra qualquer parte do codigo, recebendo o y que é o eixo vertical de ate
         //onde deve scrollar o usuario
         function desliza(y, z) {
-            let ate;
-            if (window.innerWidth <= 600) {
-                ate = parseInt(z);
-            } else {
+            //funcao responsavel por deslizar ate certa parte do site, segundo oq o usuario clicou, sao passados dois parametros para a funcao
+            let ate; //var que recebera o parse int do parametro passado, ou seja, a conversao de string para numero
+            if (window.innerWidth <= 600) { //se a resolucao do aparelho for menor ou igual a 600, deslize ate o paratro passado como y
+                ate = parseInt(z); //converte o numero passado em y para ate como string
+            } else { //caso falso, deslize ate o paratro passado como y
                 ate = parseInt(y);
             }
             //usa o metodo scrool para levar o usuario ate a  parte passada como parametro
-            window.scrollTo(0, ate);
+            window.scrollTo(0, ate); //metodo usado para scrolar o site ate a posicao pedida
             abreMenu("nao");
         }
         //ao clicar de qualquer tecla, o evento document.onkeydown chamada a funcao envia sugest, passando como parametro o evento q a chamou, ou seja, todos os eventos relacionados ao clicar de uma tecla
