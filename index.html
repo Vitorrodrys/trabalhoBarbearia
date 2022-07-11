@@ -33,7 +33,7 @@
             <!--atalho para scrollar o usuario ate a area de produtos-->
             <div id="produtos">
                 <!--div para pegar a formatacao do texto da area produtos-->
-                <a onclick="desliza(3300,6400);">Produtos</a>
+                <a onclick="desliza(3500,6400);">Produtos</a>
                 <!--metodo onclick para chamar a funcao deslina no js, scrollando o usuario ate a area desejada-->
             </div>
             <div id="contato">
@@ -46,7 +46,7 @@
                 <a onclick="desliza(4400,8300);">Localização</a>
                 <!--metodo onclick chamando a funcao desliza para deslizar ate a area desejada-->
             </div>
-            <div id="agendar" onclick="desliza(2400,4450);">
+            <div id="agendar" onclick="desliza(2550,4450);">
                 <!--div com o link para a area agendar, é adicionado uma borda em volta do conteudo dela, e colocado o metodo onclick
                 tambem na div, pois caso a pessoa clicar fora da borda, tb é executada a mesma acao que quando clicar no link-->
 
@@ -384,7 +384,7 @@
         </div>
         <div id="dentro">
             <!--div q guarda as fotos de dentro da barbearia-->
-            <img src="fotoDentro.png" width="450" height="300">
+            <img src="fotoDentro.png" width="500" height="300">
         </div>
     </div>
 
@@ -688,7 +688,7 @@
             //anima a foto ate q z seja maior q 20
             if (z < 20 && troca == 0) {
                 foto.style.margin = z + "px 0 0 0";
-                z += 5;
+                z += 2;
             } else //depois q z é maior q 20, sobe a foto um pouco, para dar um efeito a mais na animacao
             //e essa subida vai ate q z seja > -30
             if (z > -30) {
